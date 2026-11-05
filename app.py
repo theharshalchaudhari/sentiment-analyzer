@@ -882,6 +882,47 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
   border-color:#d4d4d4!important;
 }
 
+
+
+/* Use the browser's currently visible viewport, not the legacy layout viewport.
+   Apply the same viewport sizing to the landing and Step 01 screens. */
+@supports (height:100dvh){
+  [data-testid="stMain"]:has(.landing-hero),
+  [data-testid="stMain"]:has(.st-key-choose_single){
+    height:100dvh!important;
+    min-height:100dvh!important;
+    max-height:100dvh!important;
+    overflow:hidden!important;
+  }
+  [data-testid="stMain"]:has(.landing-hero) [data-testid="stMainBlockContainer"],
+  [data-testid="stMain"]:has(.st-key-choose_single) [data-testid="stMainBlockContainer"]{
+    height:100%!important;
+    min-height:0!important;
+    max-height:100%!important;
+    overflow:hidden!important;
+  }
+  .block-container:has(.landing-hero),
+  .block-container:has(.st-key-choose_single){
+    height:100dvh!important;
+    min-height:100dvh!important;
+    max-height:100dvh!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+}
+@supports not (height:100dvh){
+  [data-testid="stMain"]:has(.landing-hero),
+  [data-testid="stMain"]:has(.st-key-choose_single),
+  .block-container:has(.landing-hero),
+  .block-container:has(.st-key-choose_single){
+    height:100svh!important;
+    min-height:100svh!important;
+    max-height:100svh!important;
+    overflow:hidden!important;
+    box-sizing:border-box!important;
+  }
+}
+
 </style>
 """, unsafe_allow_html=True)
 
