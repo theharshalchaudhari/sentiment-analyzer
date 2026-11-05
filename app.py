@@ -514,21 +514,22 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
 }
 
 
-/* Centered Cogniscan-style CTA with larger label and arrow. */
-.block-container:has(.landing-hero) .landing-actions{
+/* Centered Cogniscan-style CTA. Target the keyed Streamlit element,
+   rather than relying on Markdown wrappers around separate Streamlit blocks. */
+.block-container:has(.landing-hero) .st-key-start{
   display:flex!important;
+  justify-content:center!important;
   align-items:center!important;
-  justify-content:center!important;
   width:100%!important;
-  margin:22px auto 0!important;
+  margin:22px auto 26px!important;
 }
-.block-container:has(.landing-hero) .landing-actions [data-testid="stButton"]{
+.block-container:has(.landing-hero) .st-key-start [data-testid="stButton"]{
   display:flex!important;
   justify-content:center!important;
   width:100%!important;
-  margin:0 auto!important;
+  margin:0!important;
 }
-.block-container:has(.landing-hero) .landing-actions [data-testid="stButton"] button{
+.block-container:has(.landing-hero) .st-key-start button{
   display:inline-flex!important;
   align-items:center!important;
   justify-content:center!important;
@@ -547,32 +548,35 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
   line-height:1.4!important;
   box-shadow:none!important;
   white-space:nowrap!important;
-  gap:0!important;
 }
-.block-container:has(.landing-hero) .landing-actions [data-testid="stButton"] button::after{
-  content:"↗";
-  display:inline-block;
-  margin-left:10px;
-  font-family:'Poppins',sans-serif;
-  font-size:21px;
-  font-weight:400;
-  line-height:1;
-  transform:translateY(-1px);
+.block-container:has(.landing-hero) .st-key-start button p{
+  display:inline!important;
+  margin:0!important;
+  color:#fff!important;
+  font:400 16px/1.4 'Poppins',sans-serif!important;
 }
-.block-container:has(.landing-hero) .landing-actions [data-testid="stButton"] button:hover{
+.block-container:has(.landing-hero) .st-key-start button::after{
+  content:"↗"!important;
+  display:inline-block!important;
+  visibility:visible!important;
+  opacity:1!important;
+  margin-left:11px!important;
+  color:#fff!important;
+  font-family:Arial,sans-serif!important;
+  font-size:22px!important;
+  font-weight:400!important;
+  line-height:1!important;
+}
+.block-container:has(.landing-hero) .st-key-start button:hover{
   background:#222!important;
   border-color:#222!important;
   transform:translateY(-1px)!important;
   box-shadow:none!important;
 }
 @media(max-width:560px){
-  .block-container:has(.landing-hero) .landing-actions{margin:20px auto 0!important}
-  .block-container:has(.landing-hero) .landing-actions [data-testid="stButton"] button{
-    height:46px!important;
-    padding:8px 21px!important;
-    font-size:15px!important;
-  }
-  .block-container:has(.landing-hero) .landing-actions [data-testid="stButton"] button::after{font-size:20px}
+  .block-container:has(.landing-hero) .st-key-start{margin:20px auto 22px!important}
+  .block-container:has(.landing-hero) .st-key-start button{height:46px!important;padding:8px 21px!important}
+  .block-container:has(.landing-hero) .st-key-start button p{font-size:15px!important}
 }
 
 </style>
