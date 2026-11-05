@@ -1283,8 +1283,8 @@ brandbar()
 if st.session_state.page == "home":
     st.markdown("""
     <section class="landing-hero">
-      <h1 class="landing-title">Understand Student Feedback.<br>See the Sentiment Across Your College.</h1>
-      <p class="landing-subtitle">Analyze sentiments across your college feedback dataset and understand what students are saying, what is working, and where improvements are needed.</p>
+      <h1 class="landing-title">Analyze Student Feedback.<br>Understand Their Sentiments.</h1>
+      <p class="landing-subtitle">Turn student responses into clear sentiment insights in seconds. See what students feel, identify patterns, and understand feedback at a glance.</p>
     </section>
     """, unsafe_allow_html=True)
     st.markdown('<div class="landing-actions">', unsafe_allow_html=True)
