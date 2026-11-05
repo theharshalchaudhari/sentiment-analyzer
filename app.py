@@ -1314,6 +1314,174 @@ html,body,[data-testid="stAppViewContainer"],[data-testid="stMain"]{
 }
 
 
+
+/* Mobile landing: undo desktop viewport-flex sizing so the dashboard preview
+   keeps its intrinsic content height instead of stretching into a blank panel. */
+@media(max-width:760px){
+  [data-testid="stMain"]:has(.landing-hero),
+  [data-testid="stMain"]:has(.landing-hero) [data-testid="stMainBlockContainer"],
+  .block-container:has(.landing-hero){
+    height:auto!important;
+    min-height:100svh!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+  .block-container:has(.landing-hero){
+    display:block!important;
+    box-sizing:border-box!important;
+    padding:18px 16px 28px!important;
+  }
+  .block-container:has(.landing-hero) .brandbar{
+    width:100%!important;
+    min-height:38px!important;
+    margin:0 auto 34px!important;
+    justify-content:center!important;
+  }
+  .block-container:has(.landing-hero) .brand{
+    font-size:14px!important;
+    letter-spacing:-.02em!important;
+    gap:9px!important;
+  }
+  .block-container:has(.landing-hero) .brand-icon{
+    width:34px!important;height:34px!important;flex:0 0 34px!important;
+  }
+  .block-container:has(.landing-hero) .landing-hero{
+    display:block!important;
+    width:100%!important;
+    min-height:0!important;height:auto!important;
+    padding:0 2px!important;
+    margin:0 auto 22px!important;
+    text-align:center!important;
+  }
+  .block-container:has(.landing-hero) .landing-title{
+    max-width:560px!important;
+    font-size:clamp(31px,8.2vw,42px)!important;
+    line-height:1.12!important;
+    letter-spacing:-.06em!important;
+    margin:0 auto 17px!important;
+  }
+  .block-container:has(.landing-hero) .landing-subtitle{
+    max-width:520px!important;
+    font-size:14px!important;
+    line-height:1.6!important;
+    margin:0 auto!important;
+    padding:0 5px!important;
+  }
+  .block-container:has(.landing-hero) .st-key-start{
+    display:flex!important;
+    width:100%!important;
+    justify-content:center!important;
+    margin:0 auto 30px!important;
+  }
+  .block-container:has(.landing-hero) .st-key-start button{
+    width:auto!important;
+    min-width:190px!important;
+    min-height:48px!important;
+  }
+  .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview){
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    flex:none!important;
+    overflow:visible!important;
+    margin:0!important;
+    padding:0!important;
+  }
+  .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview) > div,
+  .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview) .stMarkdown,
+  .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview) .stMarkdownContainer{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    flex:none!important;
+    overflow:visible!important;
+  }
+  .block-container:has(.landing-hero) .dashboard-preview{
+    display:block!important;
+    width:100%!important;
+    max-width:560px!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    margin:0 auto!important;
+    overflow:hidden!important;
+    border-radius:20px!important;
+  }
+  .block-container:has(.landing-hero) .preview-shell{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+  .block-container:has(.landing-hero) .preview-sidebar{display:none!important}
+  .block-container:has(.landing-hero) .preview-main{
+    display:block!important;
+    width:100%!important;
+    height:auto!important;
+    min-height:0!important;
+    max-height:none!important;
+    padding:17px 14px!important;
+    overflow:visible!important;
+  }
+  .block-container:has(.landing-hero) .preview-head{
+    display:flex!important;
+    align-items:flex-start!important;
+    gap:8px!important;
+    margin-bottom:14px!important;
+  }
+  .block-container:has(.landing-hero) .preview-head strong{font-size:13px!important}
+  .block-container:has(.landing-hero) .preview-head span{font-size:8px!important;white-space:nowrap!important}
+  .block-container:has(.landing-hero) .preview-metrics{
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    gap:7px!important;
+    margin-bottom:9px!important;
+  }
+  .block-container:has(.landing-hero) .preview-metric{
+    min-width:0!important;
+    padding:10px 8px!important;
+    overflow:hidden!important;
+  }
+  .block-container:has(.landing-hero) .preview-metric small{
+    font-size:8px!important;line-height:1.3!important;
+  }
+  .block-container:has(.landing-hero) .preview-metric b{font-size:16px!important}
+  .block-container:has(.landing-hero) .preview-metric em{font-size:8px!important}
+  .block-container:has(.landing-hero) .preview-bottom{
+    display:grid!important;
+    grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr)!important;
+    gap:8px!important;
+    min-height:0!important;
+  }
+  .block-container:has(.landing-hero) .preview-panel{
+    display:block!important;
+    min-width:0!important;
+    min-height:145px!important;
+    height:auto!important;
+    padding:11px 9px!important;
+    overflow:hidden!important;
+  }
+  .block-container:has(.landing-hero) .preview-panel-title{font-size:9px!important;margin-bottom:10px!important}
+  .block-container:has(.landing-hero) .mini-bars{height:82px!important;min-height:82px!important}
+  .block-container:has(.landing-hero) .sentiment-legend{gap:11px!important;padding-top:7px!important}
+  .block-container:has(.landing-hero) .sentiment-row{font-size:8px!important;gap:5px!important}
+  .block-container:has(.landing-hero) .sentiment-row b{font-size:8px!important}
+  .block-container:has(.landing-hero) .footer{display:block!important;padding:18px 0 0!important;font-size:8px!important}
+}
+@media(max-width:380px){
+  .block-container:has(.landing-hero) .brandbar{margin-bottom:26px!important}
+  .block-container:has(.landing-hero) .landing-title{font-size:30px!important}
+  .block-container:has(.landing-hero) .preview-metric{padding:9px 6px!important}
+  .block-container:has(.landing-hero) .preview-metric b{font-size:14px!important}
+  .block-container:has(.landing-hero) .preview-head span{font-size:7px!important}
+}
+
 </style>
 """, unsafe_allow_html=True)
 
