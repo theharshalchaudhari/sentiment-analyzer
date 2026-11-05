@@ -1259,32 +1259,34 @@ html,body,[data-testid="stAppViewContainer"],[data-testid="stMain"]{
 }
 
 
-/* Landing layout: let the dashboard preview consume the exact remaining viewport height.
-   The preview ends at the viewport bottom; only content beyond the viewport is clipped. */
+/* Anchor the dashboard preview to the bottom of the visible browser viewport.
+   Its height is derived from the available space, not from the preview's content height. */
 @supports (height:100dvh){
   .block-container:has(.landing-hero){
+    position:relative!important;
     height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;
-    display:flex!important;flex-direction:column!important;
     overflow:hidden!important;box-sizing:border-box!important;
   }
-  .block-container:has(.landing-hero) > [data-testid="stVerticalBlock"]{
-    display:flex!important;flex-direction:column!important;
-    flex:1 1 auto!important;min-height:0!important;height:100%!important;
-    gap:0!important;
-  }
   .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview){
-    display:flex!important;flex:1 1 0!important;min-height:0!important;
-    width:100%!important;margin-top:0!important;
+    position:absolute!important;
+    top:clamp(340px,52dvh,470px)!important;
+    bottom:0!important;
+    left:clamp(18px,4.2vw,68px)!important;
+    right:clamp(18px,4.2vw,68px)!important;
+    width:auto!important;height:auto!important;
+    min-height:0!important;max-height:none!important;
+    margin:0!important;padding:0!important;
+    display:block!important;overflow:hidden!important;
   }
   .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview) > div,
   .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview) .stMarkdown,
   .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview) .stMarkdownContainer{
-    display:flex!important;flex:1 1 auto!important;flex-direction:column!important;
-    min-height:0!important;width:100%!important;
+    width:100%!important;height:100%!important;min-height:0!important;
+    max-height:100%!important;display:block!important;overflow:hidden!important;
   }
   .block-container:has(.landing-hero) .dashboard-preview{
-    flex:1 1 auto!important;height:100%!important;min-height:0!important;
-    max-height:100%!important;width:min(100%,1050px)!important;
+    width:min(100%,1050px)!important;height:100%!important;
+    min-height:0!important;max-height:100%!important;
     margin:0 auto!important;overflow:hidden!important;box-sizing:border-box!important;
   }
   .block-container:has(.landing-hero) .preview-shell{
@@ -1292,23 +1294,29 @@ html,body,[data-testid="stAppViewContainer"],[data-testid="stMain"]{
     overflow:hidden!important;
   }
 }
-/* Retain compact content above the preview while allowing it to reach the bottom edge. */
-.block-container:has(.landing-hero) .brandbar,
-.block-container:has(.landing-hero) .landing-hero,
-.block-container:has(.landing-hero) .st-key-start{
-  flex:0 0 auto!important;
+@media(max-height:700px) and (min-width:851px){
+  .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview){
+    top:clamp(310px,49dvh,365px)!important;
+  }
+  .block-container:has(.landing-hero) .landing-title{font-size:clamp(29px,4.1vw,43px)!important}
+  .block-container:has(.landing-hero) .landing-subtitle{font-size:11px!important;margin-bottom:7px!important}
 }
-.block-container:has(.landing-hero) .landing-hero{margin-bottom:clamp(5px,1dvh,10px)!important}
-.block-container:has(.landing-hero) .st-key-start{margin-bottom:clamp(5px,.8dvh,9px)!important}
 @media(max-width:850px){
   .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview){
-    flex:1 1 0!important;min-height:0!important;
+    top:clamp(350px,58dvh,520px)!important;
+    left:13px!important;right:13px!important;
   }
   .block-container:has(.landing-hero) .dashboard-preview,
   .block-container:has(.landing-hero) .preview-shell{
     height:100%!important;min-height:0!important;max-height:100%!important;
   }
 }
+@media(max-width:560px){
+  .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview){
+    top:clamp(390px,64dvh,570px)!important;
+  }
+}
+
 
 </style>
 """, unsafe_allow_html=True)
