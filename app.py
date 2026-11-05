@@ -633,7 +633,7 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
 }
 .block-container:has(.st-key-choose_single) .hero{
   width:min(100%,900px)!important;
-  margin:clamp(28px,7vh,76px) auto 26px!important;
+  margin:clamp(10px,2.5vh,28px) auto 26px!important;
   padding:0 12px!important;
   text-align:center!important;
   background:transparent!important;
@@ -740,7 +740,7 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
     padding:12px 18px 18px!important;
   }
   .block-container:has(.st-key-choose_single) .hero{
-    margin:clamp(22px,5vh,42px) auto 18px!important;
+    margin:clamp(10px,2.5vh,24px) auto 18px!important;
   }
   .block-container:has(.st-key-choose_single) [data-testid="stHorizontalBlock"]{
     gap:12px!important;
@@ -758,7 +758,7 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
     padding:10px 14px 14px!important;
   }
   .block-container:has(.st-key-choose_single) .hero{
-    margin:22px auto 16px!important;
+    margin:12px auto 16px!important;
     padding:0 4px!important;
   }
   .block-container:has(.st-key-choose_single) .hero h1{
