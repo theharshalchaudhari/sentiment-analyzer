@@ -69,6 +69,64 @@ label{font-size:12px!important;color:#596780!important;font-weight:600!important
 .footer{text-align:center;color:#9aa5b7;font-size:10px;letter-spacing:.08em;padding:22px 0 0}
 hr{border-color:#ffffffa8!important}
 @media(max-width:700px){.block-container{padding:1rem 1rem 2.5rem}.hero{padding:28px 23px;border-radius:23px}.glass{padding:18px}.brandbar{margin-bottom:18px}}
+
+/* Reference-inspired SaaS landing visual system */
+[data-testid="stAppViewContainer"]{background:#fbfbff;position:relative;isolation:isolate;overflow:hidden}
+[data-testid="stAppViewContainer"]::before,[data-testid="stAppViewContainer"]::after{content:"";position:fixed;z-index:0;pointer-events:none;border-radius:50%;filter:blur(95px);opacity:.7;will-change:transform}
+[data-testid="stAppViewContainer"]::before{width:560px;height:560px;left:-180px;top:17%;background:radial-gradient(circle,rgba(244,166,231,.55),rgba(255,194,221,.25) 38%,transparent 72%);animation:aurora-one 25s ease-in-out infinite alternate}
+[data-testid="stAppViewContainer"]::after{width:650px;height:650px;right:-210px;top:28%;background:radial-gradient(circle,rgba(139,158,255,.5),rgba(187,168,255,.24) 42%,transparent 72%);animation:aurora-two 29s ease-in-out infinite alternate}
+[data-testid="stMain"]{position:relative;z-index:1;background:transparent}
+.block-container{max-width:1320px;padding:1.15rem 2.3rem 3rem}
+.brandbar{display:flex;align-items:center;justify-content:space-between;margin:0 auto 24px;max-width:1220px;padding:0 5px}
+.brand{gap:10px;color:#202642;font:800 18px Manrope,sans-serif;letter-spacing:-.04em}
+.brand-icon{width:35px;height:35px;border-radius:12px;background:linear-gradient(145deg,#4266f5,#7a35dc);box-shadow:0 7px 20px #634cf044}
+.brand-status{font-size:10px;color:#777f99;padding:8px 13px;border:1px solid #e9eafa;background:#ffffffa8;border-radius:30px}
+.landing-nav{display:flex;align-items:center;justify-content:space-between;gap:22px;margin:-54px 0 58px 230px;min-height:38px;color:#34394e;font-size:12px;font-weight:600}
+.landing-nav-links{display:flex;align-items:center;gap:36px}
+.landing-nav-right{display:flex;align-items:center;gap:25px}
+.landing-hero{text-align:center;position:relative;padding:0 12px 0;min-height:440px}
+.announcement{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:30px;background:#f2edff;border:1px solid #e9e0ff;color:#7554cf;font-size:11px;font-weight:700;margin-bottom:26px}
+.landing-title{font:800 clamp(38px,5.1vw,70px)/1.08 Manrope,sans-serif;letter-spacing:-.065em;margin:0 auto 18px;max-width:1000px;background:linear-gradient(95deg,#122caa 5%,#3446e7 33%,#8d2cdb 63%,#e34f9a 86%,#ed7957 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.landing-subtitle{font-size:16px;line-height:1.65;color:#707991;max-width:650px;margin:0 auto 28px}
+.landing-actions{display:flex;justify-content:center;gap:14px;margin:0 auto 26px}
+.landing-actions .stButton{width:auto}
+.landing-actions .stButton>button{min-width:190px;min-height:52px;border-radius:14px!important;background:linear-gradient(105deg,#2365ef,#642be7)!important;box-shadow:0 9px 24px #573ce83b!important}
+.landing-actions .stButton>button[kind="secondary"]{background:#ffffffb8!important;border:1px solid #e8e9f2!important;color:#30364e!important;box-shadow:0 5px 18px #3a47750d!important}
+.trust-row{display:flex;justify-content:center;align-items:center;gap:34px;flex-wrap:wrap;color:#68718a;font-size:11px;font-weight:600;margin:0 auto 30px}
+.trust-item{display:flex;align-items:center;gap:8px}
+.trust-check{display:grid;place-items:center;width:17px;height:17px;border-radius:50%;background:#ece8ff;color:#6642d8;font-size:11px;font-weight:800}
+.dashboard-preview{position:relative;z-index:2;max-width:1040px;margin:0 auto 15px;border:1px solid #fff;border-radius:28px;background:#ffffffd9;box-shadow:0 24px 85px #46518a20,0 4px 20px #6a74a20d;backdrop-filter:blur(25px);overflow:hidden;text-align:left}
+.preview-shell{display:grid;grid-template-columns:185px 1fr;min-height:440px}
+.preview-sidebar{padding:25px 18px;border-right:1px solid #f0f1f8;background:#ffffffa8}
+.preview-brand{display:flex;align-items:center;gap:8px;font:800 12px Manrope;color:#29334e;margin-bottom:28px}
+.preview-mark{width:19px;height:19px;border-radius:7px;background:linear-gradient(135deg,#446af4,#8d3cdb)}
+.preview-nav{padding:10px 12px;border-radius:10px;color:#7d879c;font-size:11px;margin:5px 0}
+.preview-nav.active{background:#f0edff;color:#6b4bce;font-weight:700}
+.preview-main{padding:25px 27px}
+.preview-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
+.preview-head strong{font:750 17px Manrope;color:#27334b}
+.preview-head span{font-size:10px;color:#8b95a8}
+.preview-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:15px}
+.preview-metric{padding:14px 15px;border:1px solid #eff0f7;border-radius:14px;background:#ffffffc9}
+.preview-metric small{display:block;font-size:9px;color:#8791a5;margin-bottom:9px}
+.preview-metric b{display:block;font:800 22px Manrope;color:#29354e}
+.preview-metric em{display:block;font-style:normal;font-size:9px;color:#24a37c;margin-top:5px}
+.preview-bottom{display:grid;grid-template-columns:1.25fr .75fr;gap:13px}
+.preview-panel{padding:17px;border:1px solid #eff0f7;border-radius:14px;background:#ffffffc9;min-height:190px}
+.preview-panel-title{font:700 11px Manrope;color:#3a455d;margin-bottom:15px}
+.mini-bars{height:112px;display:flex;align-items:end;gap:9px;padding:0 7px;border-bottom:1px solid #edf0f6;background:repeating-linear-gradient(to bottom,transparent 0,transparent 26px,#f0f1f7 27px)}
+.mini-bars i{display:block;flex:1;border-radius:6px 6px 0 0;background:linear-gradient(180deg,#a78bf3,#6175ec);opacity:.82}
+.sentiment-legend{display:flex;flex-direction:column;gap:13px;padding-top:8px}
+.sentiment-row{display:flex;align-items:center;gap:8px;font-size:10px;color:#778198}
+.sentiment-dot{width:8px;height:8px;border-radius:50%}
+.sentiment-row b{margin-left:auto;color:#3b4660}
+.float-tile{position:absolute;z-index:1;width:76px;height:76px;border-radius:21px;background:#ffffff80;border:1px solid #ffffffed;box-shadow:0 12px 32px #6d70b21b;backdrop-filter:blur(12px);display:grid;place-items:center;color:#604ee0}
+.float-tile.left{left:4%;top:49%}.float-tile.right{right:4%;top:46%}.float-tile.far{right:0;top:80%;width:66px;height:66px}
+.float-tile svg{width:28px;height:28px}
+.footer{text-align:center;color:#a0a7b7;font-size:10px;letter-spacing:.08em;padding:24px 0 0}
+@media(max-width:850px){.landing-nav{display:none}.block-container{padding:1rem 1rem 2.5rem}.landing-hero{min-height:390px}.preview-shell{grid-template-columns:1fr}.preview-sidebar{display:none}.preview-main{padding:18px}.float-tile{display:none}}
+@media(max-width:560px){.landing-title{font-size:39px}.landing-subtitle{font-size:13px}.landing-actions{flex-direction:column;align-items:stretch;padding:0 15px}.landing-actions .stButton>button{width:100%}.trust-row{gap:12px}.preview-metrics{grid-template-columns:1fr}.preview-bottom{grid-template-columns:1fr}.preview-head strong{font-size:14px}}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -161,34 +219,65 @@ brandbar()
 # ----------------------------- Landing -----------------------------
 if st.session_state.page == "home":
     st.markdown("""
-    <section class="hero">
-      <div class="eyebrow">A clearer way to understand feedback</div>
-      <h1>Read between<br>the sentiments.</h1>
-      <p>Turn reviews, comments and customer feedback into clear sentiment insights. Start with one piece of text or explore patterns across an entire batch.</p>
-      <div class="hero-tags"><span class="tag">VADER-powered analysis</span><span class="tag">Instant results</span><span class="tag">CSV export</span></div>
+    <div class="landing-nav">
+      <div class="landing-nav-links"><span>Product</span><span>Features</span><span>Insights</span><span>Resources⌄</span><span>About</span></div>
+      <div class="landing-nav-right"><span>Sentiment analytics</span><span style="padding:10px 17px;border-radius:11px;color:#fff;background:linear-gradient(105deg,#2365ef,#642be7)">Get started</span></div>
+    </div>
+    <section class="landing-hero">
+      <div class="announcement">✦ &nbsp; Intelligent sentiment insights are here &nbsp;›</div>
+      <h1 class="landing-title">Understand Every Review<br>With One Clear View</h1>
+      <p class="landing-subtitle">Turn customer feedback into meaningful sentiment insights. Analyze individual reviews or discover patterns across your entire dataset.</p>
     </section>
     """, unsafe_allow_html=True)
-    a,b = st.columns([1.12,.88], gap="large")
-    with a:
-        st.markdown("""
-        <div class="glass">
-          <div class="kicker">YOUR WORKSPACE</div>
-          <h3>Make every response count.</h3>
-          <p class="muted">Classify sentiment, understand polarity and get a visual summary without navigating a complicated dashboard.</p>
-        </div>
-        """, unsafe_allow_html=True)
+    st.markdown('<div class="landing-actions">', unsafe_allow_html=True)
+    action_left, action_right = st.columns([1,1], gap="small")
+    with action_left:
         if st.button("Start analyzing  →", type="primary", use_container_width=True, key="start"):
             go("choose")
             st.rerun()
-    with b:
-        st.markdown("""
-        <div class="glass">
-          <div class="kicker">BUILT FOR CLARITY</div>
-          <div class="feature" style="margin-bottom:10px"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6378e8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div><div class="feature-title">Simple input</div><div class="feature-copy">Analyze a single review or a complete list.</div></div>
-          <div class="feature"><div class="feature-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#6378e8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m19 9-5 5-4-4-5 5"/></svg></div><div class="feature-title">Visual insights</div><div class="feature-copy">See sentiment proportions in a clear circular chart.</div></div>
-        </div>
-        """, unsafe_allow_html=True)
+    with action_right:
+        if st.button("Explore batch analysis  ↗", type="secondary", use_container_width=True, key="explore_batch"):
+            st.session_state.mode = "batch"
+            go("input")
+            st.rerun()
+    st.markdown('</div>', unsafe_allow_html=True)
     st.markdown("""
+    <div class="trust-row">
+      <span class="trust-item"><span class="trust-check">✓</span> No setup required</span>
+      <span class="trust-item"><span class="trust-check">✓</span> Instant analysis</span>
+      <span class="trust-item"><span class="trust-check">✓</span> Export results anytime</span>
+    </div>
+    <div class="float-tile left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 19V11M10 19V5M16 19V8"/></svg></div>
+    <div class="float-tile right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 6-6 4 3 8-9"/><path d="M15 5h6v6"/></svg></div>
+    <div class="float-tile far"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a10 10 0 1 0 10 10h-10z"/><path d="M14 2.3V10h7.7A10 10 0 0 0 14 2.3z"/></svg></div>
+    <section class="dashboard-preview">
+      <div class="preview-shell">
+        <aside class="preview-sidebar">
+          <div class="preview-brand"><span class="preview-mark"></span> SENTIMENT STUDIO</div>
+          <div class="preview-nav active">▦ &nbsp; Overview</div>
+          <div class="preview-nav">▤ &nbsp; Single analysis</div>
+          <div class="preview-nav">▧ &nbsp; Batch reviews</div>
+          <div class="preview-nav">⌁ &nbsp; Sentiment trends</div>
+          <div class="preview-nav">⚙ &nbsp; Settings</div>
+        </aside>
+        <div class="preview-main">
+          <div class="preview-head"><div><strong>Your sentiment overview</strong><br><span>Here's what's happening across your feedback</span></div><span>LIVE PREVIEW &nbsp; ◉</span></div>
+          <div class="preview-metrics">
+            <div class="preview-metric"><small>Reviews analyzed</small><b>2,480</b><em>↑ Feedback processed</em></div>
+            <div class="preview-metric"><small>Positive sentiment</small><b>68.4%</b><em>↑ Strong positive signal</em></div>
+            <div class="preview-metric"><small>Negative sentiment</small><b>12.6%</b><em>↓ Areas to investigate</em></div>
+          </div>
+          <div class="preview-bottom">
+            <div class="preview-panel"><div class="preview-panel-title">Sentiment activity</div><div class="mini-bars"><i style="height:30%"></i><i style="height:44%"></i><i style="height:39%"></i><i style="height:61%"></i><i style="height:52%"></i><i style="height:73%"></i><i style="height:66%"></i><i style="height:88%"></i><i style="height:78%"></i><i style="height:96%"></i><i style="height:84%"></i><i style="height:100%"></i></div></div>
+            <div class="preview-panel"><div class="preview-panel-title">Sentiment distribution</div><div class="sentiment-legend">
+              <div class="sentiment-row"><span class="sentiment-dot" style="background:#27a982"></span>Positive <b>68.4%</b></div>
+              <div class="sentiment-row"><span class="sentiment-dot" style="background:#5683ef"></span>Neutral <b>19.0%</b></div>
+              <div class="sentiment-row"><span class="sentiment-dot" style="background:#e16d79"></span>Negative <b>12.6%</b></div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </section>
     <div class="footer">SENTIMENT STUDIO · POWERED BY NLTK VADER</div>
     """, unsafe_allow_html=True)
 
