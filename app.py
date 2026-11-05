@@ -513,6 +513,68 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
   }
 }
 
+
+/* Centered Cogniscan-style CTA with larger label and arrow. */
+.block-container:has(.landing-hero) .landing-actions{
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:100%!important;
+  margin:22px auto 0!important;
+}
+.block-container:has(.landing-hero) .landing-actions [data-testid="stButton"]{
+  display:flex!important;
+  justify-content:center!important;
+  width:100%!important;
+  margin:0 auto!important;
+}
+.block-container:has(.landing-hero) .landing-actions [data-testid="stButton"] button{
+  display:inline-flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  width:auto!important;
+  min-width:0!important;
+  height:48px!important;
+  padding:9px 23px!important;
+  margin:0 auto!important;
+  background:#000!important;
+  border:1px solid #000!important;
+  border-radius:9999px!important;
+  color:#fff!important;
+  font-family:'Poppins',sans-serif!important;
+  font-size:16px!important;
+  font-weight:400!important;
+  line-height:1.4!important;
+  box-shadow:none!important;
+  white-space:nowrap!important;
+  gap:0!important;
+}
+.block-container:has(.landing-hero) .landing-actions [data-testid="stButton"] button::after{
+  content:"↗";
+  display:inline-block;
+  margin-left:10px;
+  font-family:'Poppins',sans-serif;
+  font-size:21px;
+  font-weight:400;
+  line-height:1;
+  transform:translateY(-1px);
+}
+.block-container:has(.landing-hero) .landing-actions [data-testid="stButton"] button:hover{
+  background:#222!important;
+  border-color:#222!important;
+  transform:translateY(-1px)!important;
+  box-shadow:none!important;
+}
+@media(max-width:560px){
+  .block-container:has(.landing-hero) .landing-actions{margin:20px auto 0!important}
+  .block-container:has(.landing-hero) .landing-actions [data-testid="stButton"] button{
+    height:46px!important;
+    padding:8px 21px!important;
+    font-size:15px!important;
+  }
+  .block-container:has(.landing-hero) .landing-actions [data-testid="stButton"] button::after{font-size:20px}
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -610,7 +672,7 @@ if st.session_state.page == "home":
     </section>
     """, unsafe_allow_html=True)
     st.markdown('<div class="landing-actions">', unsafe_allow_html=True)
-    if st.button("Start analyzing  ↗", type="primary", use_container_width=False, key="start"):
+    if st.button("Start analyzing", type="primary", use_container_width=False, key="start"):
         go("choose")
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
