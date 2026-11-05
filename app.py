@@ -1,5 +1,5 @@
 """
-Sentiment Studio — streamlined, glassmorphism sentiment analysis.
+Terna Sentiment Analyzer — streamlined, glassmorphism sentiment analysis.
 Run: streamlit run app.py
 """
 
@@ -12,7 +12,7 @@ import plotly.graph_objects as go
 import streamlit as st
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
-st.set_page_config(page_title="Sentiment Studio", page_icon=" ", layout="wide", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Terna Sentiment Analyzer", page_icon=" ", layout="wide", initial_sidebar_state="collapsed")
 
 # Keep this stylesheet mounted across app states. The fixed animated backdrop is
 # independent of the page content, so navigation does not reset its position.
@@ -325,6 +325,37 @@ hr{border-color:#ffffffa8!important}
   .block-container:has(.landing-hero) .preview-head{margin-bottom:7px}
 }
 
+
+/* Cogniscan-inspired visual language: editorial typography, clean white canvas,
+   generous spacing and high-contrast black actions. */
+[data-testid="stAppViewContainer"]{background:#f8f8f6!important}
+[data-testid="stAppViewContainer"]::before,[data-testid="stAppViewContainer"]::after{opacity:.2!important;filter:blur(100px)!important}
+.block-container{max-width:1240px;padding:1.2rem 3.2rem 2.5rem}
+.brandbar{justify-content:flex-start;margin:0 0 18px}
+.brand{font-size:14px;letter-spacing:.025em;color:#111827}
+.brand-icon{border-radius:50%;background:#111827;box-shadow:none}
+.brand-status{display:none}
+.landing-hero{min-height:300px;text-align:left!important;display:flex;flex-direction:column;align-items:flex-start!important;justify-content:center!important;padding:48px 0 24px!important;margin:0!important}
+.landing-hero .announcement{background:#fff!important;border:1px solid #e8e8e8!important;color:#4b5563!important;border-radius:999px!important}
+.landing-title{max-width:850px!important;text-align:left!important;color:#111!important;font-family:Manrope,sans-serif!important;font-weight:500!important;letter-spacing:-.065em!important;line-height:1.02!important;font-size:clamp(42px,6.3vw,78px)!important}
+.landing-title span,.landing-title strong{color:#111!important}
+.landing-subtitle{max-width:650px!important;text-align:left!important;color:#6b7280!important;font-size:clamp(15px,1.5vw,19px)!important;line-height:1.7!important;margin:18px 0 0!important}
+.landing-actions{max-width:460px!important;margin:10px 0 0!important}
+.landing-actions .stButton>button{background:#111!important;color:#fff!important;border-radius:999px!important;box-shadow:none!important;min-height:54px!important;font-size:14px!important}
+.landing-actions .stButton>button:hover{background:#303030!important;transform:translateY(-2px)}
+.landing-actions .stButton>button[kind="secondary"]{background:transparent!important;color:#111!important;border:1px solid #d1d5db!important}
+.trust-row{justify-content:flex-start!important;margin:18px 0 26px!important}
+.dashboard-preview{margin-top:24px!important}
+.preview-shell{border-radius:22px!important;box-shadow:0 24px 70px #11111112!important;border:1px solid #e5e7eb!important}
+.footer{color:#9ca3af!important}
+@media(max-width:700px){
+ .block-container{padding:1rem 1rem 2rem!important}
+ .landing-hero{min-height:250px!important;padding:32px 0 18px!important}
+ .landing-title{font-size:clamp(39px,11vw,58px)!important}
+ .landing-actions{max-width:none!important}
+ .trust-row{flex-wrap:wrap!important;gap:10px!important}
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -384,8 +415,7 @@ def donut_chart(values: Dict[str, float], center_label: str, center_value: str, 
 def brandbar():
     st.markdown("""
     <div class="brandbar">
-      <div class="brand"><div class="brand-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>SENTIMENT STUDIO</div>
-      <div class="brand-status">VADER · TEXT ANALYTICS</div>
+      <div class="brand"><div class="brand-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>TERNA SENTIMENT ANALYZER</div>
     </div>
     """, unsafe_allow_html=True)
 
@@ -417,10 +447,6 @@ brandbar()
 # ----------------------------- Landing -----------------------------
 if st.session_state.page == "home":
     st.markdown("""
-    <div class="landing-nav">
-      <div class="landing-nav-links"><span>Product</span><span>Features</span><span>Insights</span><span>Resources⌄</span><span>About</span></div>
-      <div class="landing-nav-right"><span>Sentiment analytics</span><span style="padding:10px 17px;border-radius:11px;color:#fff;background:linear-gradient(105deg,#2365ef,#642be7)">Get started</span></div>
-    </div>
     <section class="landing-hero">
       <div class="announcement">✦ &nbsp; Intelligent sentiment insights are here &nbsp;›</div>
       <h1 class="landing-title">Understand Every Review<br>With One Clear View</h1>
@@ -451,7 +477,7 @@ if st.session_state.page == "home":
     <section class="dashboard-preview">
       <div class="preview-shell">
         <aside class="preview-sidebar">
-          <div class="preview-brand"><span class="preview-mark"></span> SENTIMENT STUDIO</div>
+          <div class="preview-brand"><span class="preview-mark"></span> TERNA SENTIMENT ANALYZER</div>
           <div class="preview-nav active">▦ &nbsp; Overview</div>
           <div class="preview-nav">▤ &nbsp; Single analysis</div>
           <div class="preview-nav">▧ &nbsp; Batch reviews</div>
@@ -476,7 +502,7 @@ if st.session_state.page == "home":
         </div>
       </div>
     </section>
-    <div class="footer">SENTIMENT STUDIO · POWERED BY NLTK VADER</div>
+    <div class="footer">TERNA SENTIMENT ANALYZER · POWERED BY NLTK VADER</div>
     """, unsafe_allow_html=True)
 
 # ----------------------------- Choose workflow -----------------------------
@@ -606,4 +632,4 @@ elif st.session_state.page == "results":
             go("home")
             st.rerun()
 
-st.markdown('<div class="footer">SENTIMENT STUDIO · POWERED BY NLTK VADER</div>', unsafe_allow_html=True)
+st.markdown('<div class="footer">TERNA SENTIMENT ANALYZER · POWERED BY NLTK VADER</div>', unsafe_allow_html=True)
