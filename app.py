@@ -966,6 +966,54 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
 .block-container:has(.st-key-back_input) .footer{display:none!important}
 @media(max-width:760px){.sentiment-donut{width:min(100%,205px)}.block-container:has(.st-key-back_input) .glass:has(.sentiment-donut-wrap) .sentiment-donut-wrap{min-height:195px}}
 
+
+/* Keep the polarity card aligned with the overall-sentiment card */
+.block-container:has(.st-key-back_input) [data-testid="stHorizontalBlock"]{
+  align-items:flex-start!important;
+}
+.block-container:has(.st-key-back_input) [data-testid="column"]:first-child .glass:first-of-type,
+.block-container:has(.st-key-back_input) .glass:has(.sentiment-donut-wrap){
+  height:226px!important;
+  min-height:226px!important;
+  max-height:226px!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+}
+.block-container:has(.st-key-back_input) .glass:has(.sentiment-donut-wrap){
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+}
+.block-container:has(.st-key-back_input) .glass:has(.sentiment-donut-wrap) .sentiment-donut-wrap{
+  flex:1 1 auto!important;
+  min-height:0!important;
+  padding:0!important;
+  margin-top:-2px!important;
+}
+.block-container:has(.st-key-back_input) .sentiment-donut{
+  width:min(100%,158px)!important;
+  max-height:158px!important;
+}
+.block-container:has(.st-key-back_input) .glass:has(.sentiment-donut-wrap) h3{
+  margin:0 0 2px!important;
+  font-size:15px!important;
+}
+.block-container:has(.st-key-back_input) .glass:has(.sentiment-donut-wrap) p{
+  margin-bottom:2px!important;
+  font-size:10px!important;
+  line-height:1.45!important;
+}
+@media(max-width:760px){
+  .block-container:has(.st-key-back_input) [data-testid="column"]:first-child .glass:first-of-type,
+  .block-container:has(.st-key-back_input) .glass:has(.sentiment-donut-wrap){
+    height:auto!important;min-height:0!important;max-height:none!important;
+  }
+  .block-container:has(.st-key-back_input) .glass:has(.sentiment-donut-wrap) .sentiment-donut-wrap{
+    min-height:0!important;padding:8px 0!important;
+  }
+  .block-container:has(.st-key-back_input) .sentiment-donut{width:min(100%,175px)!important}
+}
+
 </style>
 """, unsafe_allow_html=True)
 
