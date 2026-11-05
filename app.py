@@ -400,6 +400,74 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
   font-weight:400!important;
 }
 
+
+/* Landing alignment and compact primary action refinements */
+.block-container:has(.landing-hero) .brandbar{
+  justify-content:center!important;
+  text-align:center!important;
+}
+.block-container:has(.landing-hero) .brand{
+  justify-content:center!important;
+  text-align:center!important;
+}
+.block-container:has(.landing-hero) .landing-hero{
+  width:100%!important;
+  align-items:center!important;
+  justify-content:center!important;
+  text-align:center!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.block-container:has(.landing-hero) .landing-title,
+.block-container:has(.landing-hero) .landing-subtitle{
+  width:100%!important;
+  text-align:center!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+.block-container:has(.landing-hero) .landing-actions{
+  width:auto!important;
+  max-width:none!important;
+  margin:22px auto 0!important;
+  justify-content:center!important;
+  align-self:center!important;
+}
+.block-container:has(.landing-hero) .landing-actions .stButton{
+  width:auto!important;
+  flex:0 0 auto!important;
+}
+.block-container:has(.landing-hero) .landing-actions .stButton>button{
+  width:auto!important;
+  min-width:205px!important;
+  min-height:54px!important;
+  padding:0 27px!important;
+  background:#000!important;
+  color:#fff!important;
+  border:1px solid #000!important;
+  box-shadow:none!important;
+  font-size:14px!important;
+}
+.block-container:has(.landing-hero) .landing-actions .stButton>button:hover{
+  background:#222!important;
+  border-color:#222!important;
+}
+.block-container:has(.landing-hero) .dashboard-preview{
+  margin-top:24px!important;
+  margin-left:auto!important;
+  margin-right:auto!important;
+}
+@media(max-width:850px){
+  .block-container:has(.landing-hero) .dashboard-preview{margin-top:20px!important}
+}
+@media(max-width:560px){
+  .block-container:has(.landing-hero) .landing-actions{width:100%!important;margin-top:20px!important}
+  .block-container:has(.landing-hero) .landing-actions .stButton{width:auto!important}
+  .block-container:has(.landing-hero) .landing-actions .stButton>button{
+    width:auto!important;min-width:190px!important;min-height:52px!important;font-size:14px!important
+  }
+  .block-container:has(.landing-hero) .dashboard-preview{margin-top:18px!important}
+}
+
 </style>
 """, unsafe_allow_html=True)
 
