@@ -1171,150 +1171,146 @@ html,body,[data-testid="stAppViewContainer"],[data-testid="stMain"]{
 }
 
 
-/* Landing page: fit the complete dashboard preview inside the visible browser viewport */
+/* Landing page — one predictable vertical layout, sized to the browser viewport.
+   Keep every section in normal document flow; the preview gets the remaining height. */
 @supports (height:100dvh){
   [data-testid="stMain"]:has(.landing-hero){
     height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;
-  }
-  .block-container:has(.landing-hero){
-    height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;
-    padding-top:clamp(6px,1.1dvh,12px)!important;
-    padding-bottom:clamp(6px,1dvh,10px)!important;
     overflow:hidden!important;
   }
-}
-.block-container:has(.landing-hero) .brandbar{
-  min-height:clamp(27px,4dvh,36px)!important;
-  margin-bottom:clamp(3px,.8dvh,8px)!important;
-}
-.block-container:has(.landing-hero) .landing-hero{
-  margin-bottom:clamp(5px,1dvh,10px)!important;
-}
-.block-container:has(.landing-hero) .landing-title{
-  font-size:clamp(30px,min(4.2vw,6.2dvh),56px)!important;
-  line-height:1.02!important;
-  margin-bottom:clamp(5px,1dvh,9px)!important;
-}
-.block-container:has(.landing-hero) .landing-subtitle{
-  max-width:760px!important;
-  font-size:clamp(10px,min(1.05vw,1.8dvh),13px)!important;
-  line-height:1.4!important;
-  margin-bottom:clamp(7px,1.2dvh,12px)!important;
-}
-.block-container:has(.landing-hero) .landing-actions{
-  margin-bottom:clamp(6px,1dvh,10px)!important;
-}
-.block-container:has(.landing-hero) .dashboard-preview{
-  width:min(100%,1050px)!important;
-  margin:0 auto!important;
-  overflow:hidden!important;
-}
-.block-container:has(.landing-hero) .preview-shell{
-  height:clamp(155px,29dvh,285px)!important;
-  min-height:0!important;
-  overflow:hidden!important;
-}
-.block-container:has(.landing-hero) .preview-main{
-  min-width:0!important;
-  padding:clamp(9px,1.5dvh,16px) clamp(10px,1.8vw,19px)!important;
-  overflow:hidden!important;
-}
-.block-container:has(.landing-hero) .preview-sidebar{
-  padding:clamp(8px,1.5dvh,15px) 11px!important;
-  overflow:hidden!important;
-}
-.block-container:has(.landing-hero) .preview-head{margin-bottom:clamp(5px,1dvh,10px)!important}
-.block-container:has(.landing-hero) .preview-metrics{gap:7px!important;margin-bottom:7px!important}
-.block-container:has(.landing-hero) .preview-metric{padding:clamp(6px,1dvh,10px)!important}
-.block-container:has(.landing-hero) .preview-metric b{font-size:clamp(14px,2.2dvh,19px)!important}
-.block-container:has(.landing-hero) .preview-bottom{gap:7px!important}
-.block-container:has(.landing-hero) .preview-panel{
-  min-height:clamp(70px,12dvh,112px)!important;
-  padding:clamp(7px,1dvh,11px)!important;
-  overflow:hidden!important;
-}
-.block-container:has(.landing-hero) .mini-bars{height:clamp(35px,8dvh,66px)!important}
-.block-container:has(.landing-hero) .sentiment-legend{gap:5px!important}
-.block-container:has(.landing-hero) .footer{display:none!important}
-@media(max-height:760px) and (min-width:851px){
-  .block-container:has(.landing-hero) .landing-title{font-size:clamp(29px,min(3.8vw,5.2dvh),44px)!important}
-  .block-container:has(.landing-hero) .preview-shell{height:clamp(145px,25dvh,205px)!important}
-  .block-container:has(.landing-hero) .preview-panel{min-height:65px!important}
-  .block-container:has(.landing-hero) .mini-bars{height:35px!important}
-}
-@media(max-width:850px){
   .block-container:has(.landing-hero){
     height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;
-    padding:8px 14px!important;overflow:hidden!important;
+    box-sizing:border-box!important;
+    padding:10px clamp(18px,3vw,42px) 0!important;
+    overflow:hidden!important;
+    display:flex!important;flex-direction:column!important;
+    gap:0!important;
   }
-  .block-container:has(.landing-hero) .landing-hero{padding-top:clamp(5px,2dvh,18px)!important}
-  .block-container:has(.landing-hero) .preview-shell{height:clamp(145px,25dvh,230px)!important}
-}
-@media(max-width:560px){
-  .block-container:has(.landing-hero) .landing-title{font-size:clamp(27px,7.2vw,38px)!important}
-  .block-container:has(.landing-hero) .preview-shell{height:clamp(135px,23dvh,190px)!important}
-  .block-container:has(.landing-hero) .preview-main{padding:8px!important}
-  .block-container:has(.landing-hero) .preview-metrics{grid-template-columns:repeat(3,minmax(0,1fr))!important}
-  .block-container:has(.landing-hero) .preview-bottom{grid-template-columns:1fr 1fr!important}
-}
-
-
-/* Anchor the dashboard preview to the bottom of the visible browser viewport.
-   Its height is derived from the available space, not from the preview's content height. */
-@supports (height:100dvh){
-  .block-container:has(.landing-hero){
-    position:relative!important;
-    height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;
-    overflow:hidden!important;box-sizing:border-box!important;
+  .block-container:has(.landing-hero) .brandbar{
+    flex:0 0 auto!important;
+    width:100%!important;max-width:1120px!important;
+    min-height:32px!important;
+    margin:0 auto 8px!important;padding:0 5px!important;
+  }
+  .block-container:has(.landing-hero) .landing-hero{
+    flex:0 0 auto!important;
+    min-height:0!important;height:auto!important;
+    padding:0 12px!important;
+    margin:0 auto 8px!important;
+    width:100%!important;
+  }
+  .block-container:has(.landing-hero) .landing-title{
+    max-width:1000px!important;
+    font-size:clamp(30px, min(4.5vw, 6.4dvh), 58px)!important;
+    line-height:1.02!important;
+    margin:0 auto 8px!important;
+  }
+  .block-container:has(.landing-hero) .landing-subtitle{
+    max-width:740px!important;
+    font-size:clamp(11px, min(1.15vw, 1.8dvh), 13px)!important;
+    line-height:1.45!important;
+    margin:0 auto!important;
+  }
+  .block-container:has(.landing-hero) .landing-actions{
+    flex:0 0 auto!important;
+    margin:0 auto 10px!important;
+    justify-content:center!important;
+  }
+  .block-container:has(.landing-hero) .st-key-start{
+    flex:0 0 auto!important;
+    width:auto!important;
+    margin:0 auto 10px!important;
+  }
+  .block-container:has(.landing-hero) .st-key-start button{
+    min-height:44px!important;
   }
   .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview){
-    position:absolute!important;
-    top:clamp(340px,52dvh,470px)!important;
-    bottom:0!important;
-    left:clamp(18px,4.2vw,68px)!important;
-    right:clamp(18px,4.2vw,68px)!important;
-    width:auto!important;height:auto!important;
-    min-height:0!important;max-height:none!important;
+    flex:1 1 0!important;
+    min-height:0!important;
+    width:100%!important;
     margin:0!important;padding:0!important;
-    display:block!important;overflow:hidden!important;
+    display:flex!important;
+    overflow:hidden!important;
   }
   .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview) > div,
   .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview) .stMarkdown,
   .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview) .stMarkdownContainer{
-    width:100%!important;height:100%!important;min-height:0!important;
-    max-height:100%!important;display:block!important;overflow:hidden!important;
+    flex:1 1 auto!important;
+    display:flex!important;flex-direction:column!important;
+    width:100%!important;height:100%!important;
+    min-height:0!important;max-height:100%!important;
   }
   .block-container:has(.landing-hero) .dashboard-preview{
-    width:min(100%,1050px)!important;height:100%!important;
-    min-height:0!important;max-height:100%!important;
-    margin:0 auto!important;overflow:hidden!important;box-sizing:border-box!important;
+    flex:1 1 auto!important;
+    width:min(100%,1120px)!important;
+    height:100%!important;min-height:0!important;max-height:100%!important;
+    margin:0 auto!important;
+    overflow:hidden!important;box-sizing:border-box!important;
   }
   .block-container:has(.landing-hero) .preview-shell{
-    height:100%!important;min-height:0!important;max-height:100%!important;
+    display:grid!important;
+    grid-template-columns:clamp(125px,16vw,185px) minmax(0,1fr)!important;
+    width:100%!important;height:100%!important;
+    min-height:0!important;max-height:100%!important;
     overflow:hidden!important;
   }
-}
-@media(max-height:700px) and (min-width:851px){
-  .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview){
-    top:clamp(310px,49dvh,365px)!important;
+  .block-container:has(.landing-hero) .preview-sidebar,
+  .block-container:has(.landing-hero) .preview-main{
+    min-height:0!important;min-width:0!important;overflow:hidden!important;
   }
-  .block-container:has(.landing-hero) .landing-title{font-size:clamp(29px,4.1vw,43px)!important}
-  .block-container:has(.landing-hero) .landing-subtitle{font-size:11px!important;margin-bottom:7px!important}
+  .block-container:has(.landing-hero) .preview-main{
+    display:flex!important;flex-direction:column!important;
+    padding:clamp(10px,1.7dvh,18px) clamp(12px,1.8vw,22px)!important;
+  }
+  .block-container:has(.landing-hero) .preview-head{
+    flex:0 0 auto!important;margin-bottom:clamp(7px,1.1dvh,12px)!important;
+  }
+  .block-container:has(.landing-hero) .preview-metrics{
+    flex:0 0 auto!important;gap:8px!important;margin-bottom:8px!important;
+  }
+  .block-container:has(.landing-hero) .preview-metric{
+    min-width:0!important;padding:clamp(7px,1.2dvh,12px)!important;
+  }
+  .block-container:has(.landing-hero) .preview-bottom{
+    flex:1 1 0!important;min-height:0!important;
+    grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr)!important;
+    gap:8px!important;
+  }
+  .block-container:has(.landing-hero) .preview-panel{
+    min-height:0!important;height:100%!important;
+    padding:clamp(8px,1.2dvh,14px)!important;
+    overflow:hidden!important;
+  }
+  .block-container:has(.landing-hero) .mini-bars{
+    height:clamp(38px, min(12dvh, 100%), 112px)!important;
+  }
+  .block-container:has(.landing-hero) .sentiment-legend{gap:clamp(5px,1.2dvh,13px)!important}
+  .block-container:has(.landing-hero) .footer{display:none!important}
+}
+@media(max-height:720px) and (min-width:851px){
+  .block-container:has(.landing-hero){padding-top:6px!important}
+  .block-container:has(.landing-hero) .brandbar{margin-bottom:4px!important;min-height:27px!important}
+  .block-container:has(.landing-hero) .landing-hero{margin-bottom:5px!important}
+  .block-container:has(.landing-hero) .landing-title{font-size:clamp(28px,4vw,43px)!important;margin-bottom:5px!important}
+  .block-container:has(.landing-hero) .landing-subtitle{font-size:11px!important}
+  .block-container:has(.landing-hero) .st-key-start{margin-bottom:6px!important}
+  .block-container:has(.landing-hero) .preview-sidebar{padding:10px!important}
+  .block-container:has(.landing-hero) .preview-brand{margin-bottom:12px!important}
+  .block-container:has(.landing-hero) .preview-nav{padding:7px 9px!important;margin:3px 0!important}
 }
 @media(max-width:850px){
-  .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview){
-    top:clamp(350px,58dvh,520px)!important;
-    left:13px!important;right:13px!important;
-  }
-  .block-container:has(.landing-hero) .dashboard-preview,
-  .block-container:has(.landing-hero) .preview-shell{
-    height:100%!important;min-height:0!important;max-height:100%!important;
-  }
+  .block-container:has(.landing-hero){padding:8px 14px 0!important}
+  .block-container:has(.landing-hero) .landing-hero{padding:5px 8px 0!important}
+  .block-container:has(.landing-hero) .landing-title{font-size:clamp(27px,6vw,42px)!important}
+  .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview){flex:1 1 0!important}
 }
 @media(max-width:560px){
-  .block-container:has(.landing-hero) [data-testid="stElementContainer"]:has(.dashboard-preview){
-    top:clamp(390px,64dvh,570px)!important;
-  }
+  .block-container:has(.landing-hero) .preview-shell{grid-template-columns:0 minmax(0,1fr)!important}
+  .block-container:has(.landing-hero) .preview-sidebar{display:none!important}
+  .block-container:has(.landing-hero) .preview-bottom{grid-template-columns:minmax(0,1fr) minmax(0,.85fr)!important}
+  .block-container:has(.landing-hero) .preview-head strong{font-size:13px!important}
+  .block-container:has(.landing-hero) .preview-metric b{font-size:15px!important}
+  .block-container:has(.landing-hero) .preview-metric small{font-size:8px!important}
 }
 
 
