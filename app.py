@@ -1170,6 +1170,94 @@ html,body,[data-testid="stAppViewContainer"],[data-testid="stMain"]{
   .block-container:has(.st-key-download_batch_csv) .sentiment-donut{width:min(100%,250px)!important}
 }
 
+
+/* Landing page: fit the complete dashboard preview inside the visible browser viewport */
+@supports (height:100dvh){
+  [data-testid="stMain"]:has(.landing-hero){
+    height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;
+  }
+  .block-container:has(.landing-hero){
+    height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;
+    padding-top:clamp(6px,1.1dvh,12px)!important;
+    padding-bottom:clamp(6px,1dvh,10px)!important;
+    overflow:hidden!important;
+  }
+}
+.block-container:has(.landing-hero) .brandbar{
+  min-height:clamp(27px,4dvh,36px)!important;
+  margin-bottom:clamp(3px,.8dvh,8px)!important;
+}
+.block-container:has(.landing-hero) .landing-hero{
+  margin-bottom:clamp(5px,1dvh,10px)!important;
+}
+.block-container:has(.landing-hero) .landing-title{
+  font-size:clamp(30px,min(4.2vw,6.2dvh),56px)!important;
+  line-height:1.02!important;
+  margin-bottom:clamp(5px,1dvh,9px)!important;
+}
+.block-container:has(.landing-hero) .landing-subtitle{
+  max-width:760px!important;
+  font-size:clamp(10px,min(1.05vw,1.8dvh),13px)!important;
+  line-height:1.4!important;
+  margin-bottom:clamp(7px,1.2dvh,12px)!important;
+}
+.block-container:has(.landing-hero) .landing-actions{
+  margin-bottom:clamp(6px,1dvh,10px)!important;
+}
+.block-container:has(.landing-hero) .dashboard-preview{
+  width:min(100%,1050px)!important;
+  margin:0 auto!important;
+  overflow:hidden!important;
+}
+.block-container:has(.landing-hero) .preview-shell{
+  height:clamp(155px,29dvh,285px)!important;
+  min-height:0!important;
+  overflow:hidden!important;
+}
+.block-container:has(.landing-hero) .preview-main{
+  min-width:0!important;
+  padding:clamp(9px,1.5dvh,16px) clamp(10px,1.8vw,19px)!important;
+  overflow:hidden!important;
+}
+.block-container:has(.landing-hero) .preview-sidebar{
+  padding:clamp(8px,1.5dvh,15px) 11px!important;
+  overflow:hidden!important;
+}
+.block-container:has(.landing-hero) .preview-head{margin-bottom:clamp(5px,1dvh,10px)!important}
+.block-container:has(.landing-hero) .preview-metrics{gap:7px!important;margin-bottom:7px!important}
+.block-container:has(.landing-hero) .preview-metric{padding:clamp(6px,1dvh,10px)!important}
+.block-container:has(.landing-hero) .preview-metric b{font-size:clamp(14px,2.2dvh,19px)!important}
+.block-container:has(.landing-hero) .preview-bottom{gap:7px!important}
+.block-container:has(.landing-hero) .preview-panel{
+  min-height:clamp(70px,12dvh,112px)!important;
+  padding:clamp(7px,1dvh,11px)!important;
+  overflow:hidden!important;
+}
+.block-container:has(.landing-hero) .mini-bars{height:clamp(35px,8dvh,66px)!important}
+.block-container:has(.landing-hero) .sentiment-legend{gap:5px!important}
+.block-container:has(.landing-hero) .footer{display:none!important}
+@media(max-height:760px) and (min-width:851px){
+  .block-container:has(.landing-hero) .landing-title{font-size:clamp(29px,min(3.8vw,5.2dvh),44px)!important}
+  .block-container:has(.landing-hero) .preview-shell{height:clamp(145px,25dvh,205px)!important}
+  .block-container:has(.landing-hero) .preview-panel{min-height:65px!important}
+  .block-container:has(.landing-hero) .mini-bars{height:35px!important}
+}
+@media(max-width:850px){
+  .block-container:has(.landing-hero){
+    height:100dvh!important;min-height:100dvh!important;max-height:100dvh!important;
+    padding:8px 14px!important;overflow:hidden!important;
+  }
+  .block-container:has(.landing-hero) .landing-hero{padding-top:clamp(5px,2dvh,18px)!important}
+  .block-container:has(.landing-hero) .preview-shell{height:clamp(145px,25dvh,230px)!important}
+}
+@media(max-width:560px){
+  .block-container:has(.landing-hero) .landing-title{font-size:clamp(27px,7.2vw,38px)!important}
+  .block-container:has(.landing-hero) .preview-shell{height:clamp(135px,23dvh,190px)!important}
+  .block-container:has(.landing-hero) .preview-main{padding:8px!important}
+  .block-container:has(.landing-hero) .preview-metrics{grid-template-columns:repeat(3,minmax(0,1fr))!important}
+  .block-container:has(.landing-hero) .preview-bottom{grid-template-columns:1fr 1fr!important}
+}
+
 </style>
 """, unsafe_allow_html=True)
 
