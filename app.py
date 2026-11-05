@@ -8,7 +8,7 @@ from typing import Dict, List, Tuple
 
 import nltk
 import pandas as pd
-import plotly.graph_objects as go
+import plotly.graph_objects as plotly_go
 import streamlit as st
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 
@@ -990,7 +990,7 @@ def donut_chart(values: Dict[str, float], center_label: str, center_value: str, 
     labels = ["Positive", "Neutral", "Negative"]
     colors = ["#27A982", "#E8B45D", "#E16D79"]
     # Use the explicit data-list constructor for compatibility across Plotly releases.
-    fig = go.Figure(data=[go.Pie(
+    fig = plotly_go.Figure(data=[plotly_go.Pie(
         labels=labels, values=[values.get(x, 0) for x in labels], hole=0.70,
         sort=False, direction="clockwise", rotation=90,
         marker=dict(colors=colors, line=dict(color="rgba(255,255,255,.95)", width=5)),
@@ -1176,11 +1176,8 @@ elif st.session_state.page == "results":
             st.markdown('</div>', unsafe_allow_html=True)
         with right:
             st.markdown('<div class="glass"><div class="kicker">POLARITY DISTRIBUTION</div><h3>Sentiment composition</h3><p class="muted">Share of positive, neutral and negative language signals.</p>', unsafe_allow_html=True)
-            try:
-                chart = donut_chart({"Positive":scores["pos"],"Neutral":scores["neu"],"Negative":scores["neg"]},"POLARITY","100%",300)
-                st.plotly_chart(chart, use_container_width=True, config={"displayModeBar":False})
-            except Exception:
-                st.warning("The sentiment chart could not be rendered in this environment. The sentiment scores below are still available.")
+            chart = donut_chart({"Positive":scores["pos"],"Neutral":scores["neu"],"Negative":scores["neg"]},"POLARITY","100%",300)
+            st.plotly_chart(chart, use_container_width=True, config={"displayModeBar":False})
             st.markdown('</div>', unsafe_allow_html=True)
         p,n,ng = st.columns(3)
         p.metric("Positive", f'{scores["pos"]*100:.1f}%')
