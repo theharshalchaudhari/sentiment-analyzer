@@ -601,6 +601,204 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
   }
 }
 
+
+/* Step 01: full-viewport responsive workflow selection.
+   Keep the brandbar aligned with the landing page on every workflow page. */
+.block-container:has(.st-key-choose_single){
+  display:flex!important;
+  flex-direction:column!important;
+  width:100%!important;
+  max-width:none!important;
+  height:100vh!important;
+  min-height:100vh!important;
+  max-height:100vh!important;
+  overflow:hidden!important;
+  box-sizing:border-box!important;
+  padding:12px clamp(18px,4.5vw,72px) 22px!important;
+}
+.block-container:has(.st-key-choose_single) .brandbar{
+  flex:0 0 auto!important;
+  width:min(100%,1420px)!important;
+  min-height:38px!important;
+  margin:0 auto!important;
+  justify-content:center!important;
+}
+.block-container:has(.st-key-choose_single) .brand{
+  justify-content:center!important;
+  text-align:center!important;
+}
+/* Back navigation and step content sit below the fixed brand position. */
+.block-container:has(.st-key-choose_single) > div:has(button){
+  flex:0 0 auto;
+}
+.block-container:has(.st-key-choose_single) .hero{
+  width:min(100%,900px)!important;
+  margin:clamp(28px,7vh,76px) auto 26px!important;
+  padding:0 12px!important;
+  text-align:center!important;
+  background:transparent!important;
+  border:0!important;
+  box-shadow:none!important;
+}
+.block-container:has(.st-key-choose_single) .hero .eyebrow{
+  color:#000!important;
+  letter-spacing:.14em!important;
+}
+.block-container:has(.st-key-choose_single) .hero h1{
+  color:#000!important;
+  font-size:clamp(32px,4.2vw,54px)!important;
+  line-height:1.12!important;
+  margin:0 0 12px!important;
+}
+.block-container:has(.st-key-choose_single) .hero p{
+  max-width:620px!important;
+  margin:0 auto!important;
+  color:#555!important;
+  font-size:clamp(13px,1.2vw,15px)!important;
+}
+.block-container:has(.st-key-choose_single) [data-testid="stHorizontalBlock"]{
+  width:min(100%,1040px)!important;
+  margin:0 auto!important;
+  gap:clamp(14px,2.2vw,26px)!important;
+  align-items:stretch!important;
+}
+.block-container:has(.st-key-choose_single) [data-testid="column"]{
+  min-width:0!important;
+}
+.block-container:has(.st-key-choose_single) .glass{
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  min-height:clamp(190px,25vh,245px)!important;
+  height:100%!important;
+  padding:clamp(20px,2.5vw,32px)!important;
+  margin:0 0 14px!important;
+  color:#000!important;
+  background:rgba(255,255,255,.82)!important;
+  border:1px solid #d8d8d8!important;
+  border-radius:20px!important;
+  box-shadow:0 12px 38px rgba(0,0,0,.055)!important;
+  backdrop-filter:blur(18px)!important;
+}
+.block-container:has(.st-key-choose_single) .feature-icon{
+  width:42px!important;
+  height:42px!important;
+  margin-bottom:18px!important;
+  color:#fff!important;
+  background:#000!important;
+  border-radius:13px!important;
+}
+.block-container:has(.st-key-choose_single) .feature-icon svg{
+  stroke:#fff!important;
+}
+.block-container:has(.st-key-choose_single) .glass h3,
+.block-container:has(.st-key-choose_single) .glass .muted,
+.block-container:has(.st-key-choose_single) .glass .kicker{
+  color:#000!important;
+}
+.block-container:has(.st-key-choose_single) .glass h3{
+  font-size:21px!important;
+  margin:0 0 8px!important;
+}
+.block-container:has(.st-key-choose_single) .glass .muted{
+  font-size:13px!important;
+  line-height:1.65!important;
+}
+.block-container:has(.st-key-choose_single) .glass .kicker{
+  margin-top:17px!important;
+  font-size:9px!important;
+  letter-spacing:.13em!important;
+}
+.block-container:has(.st-key-choose_single) .st-key-choose_single,
+.block-container:has(.st-key-choose_single) .st-key-choose_many{
+  display:flex!important;
+  justify-content:center!important;
+  width:100%!important;
+  margin:0!important;
+}
+.block-container:has(.st-key-choose_single) .st-key-choose_single button,
+.block-container:has(.st-key-choose_single) .st-key-choose_many button{
+  width:100%!important;
+  min-height:48px!important;
+  color:#fff!important;
+  background:#000!important;
+  border:1px solid #000!important;
+  border-radius:999px!important;
+  box-shadow:none!important;
+  font-family:'Poppins',sans-serif!important;
+  font-size:13px!important;
+  font-weight:400!important;
+}
+.block-container:has(.st-key-choose_single) .st-key-choose_single button:hover,
+.block-container:has(.st-key-choose_single) .st-key-choose_many button:hover{
+  color:#000!important;
+  background:#fff!important;
+  border-color:#000!important;
+}
+@media(max-width:760px){
+  .block-container:has(.st-key-choose_single){
+    padding:12px 18px 18px!important;
+  }
+  .block-container:has(.st-key-choose_single) .hero{
+    margin:clamp(22px,5vh,42px) auto 18px!important;
+  }
+  .block-container:has(.st-key-choose_single) [data-testid="stHorizontalBlock"]{
+    gap:12px!important;
+  }
+  .block-container:has(.st-key-choose_single) .glass{
+    min-height:clamp(165px,22vh,205px)!important;
+    padding:18px!important;
+  }
+}
+@media(max-width:560px){
+  .block-container:has(.st-key-choose_single){
+    height:100svh!important;
+    min-height:100svh!important;
+    max-height:100svh!important;
+    padding:10px 14px 14px!important;
+  }
+  .block-container:has(.st-key-choose_single) .hero{
+    margin:22px auto 16px!important;
+    padding:0 4px!important;
+  }
+  .block-container:has(.st-key-choose_single) .hero h1{
+    font-size:clamp(29px,8vw,38px)!important;
+  }
+  .block-container:has(.st-key-choose_single) .hero p{
+    font-size:12px!important;
+    line-height:1.55!important;
+  }
+  .block-container:has(.st-key-choose_single) [data-testid="stHorizontalBlock"]{
+    flex-direction:column!important;
+    gap:12px!important;
+  }
+  .block-container:has(.st-key-choose_single) [data-testid="column"]{
+    width:100%!important;
+    flex:1 1 auto!important;
+  }
+  .block-container:has(.st-key-choose_single) .glass{
+    min-height:0!important;
+    padding:15px 17px!important;
+    margin-bottom:9px!important;
+  }
+  .block-container:has(.st-key-choose_single) .feature-icon{
+    width:34px!important;
+    height:34px!important;
+    margin-bottom:10px!important;
+  }
+  .block-container:has(.st-key-choose_single) .glass h3{
+    font-size:17px!important;
+    margin-bottom:5px!important;
+  }
+  .block-container:has(.st-key-choose_single) .glass .muted{
+    font-size:11px!important;
+    line-height:1.45!important;
+  }
+  .block-container:has(.st-key-choose_single) .glass .kicker{
+    margin-top:9px!important;
+  }
+}
+
 /* Monochrome dashboard preview with the landing-page mark. */
 .block-container:has(.landing-hero) .dashboard-preview{
   color:#000!important;
