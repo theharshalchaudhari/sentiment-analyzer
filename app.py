@@ -950,6 +950,22 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
 .block-container:has(.st-key-analyze_batch) [data-testid="stFileUploader"] section{border:1px dashed #c9c9c9!important;background:#fafafa!important;border-radius:11px!important}
 .block-container:has(.st-key-analyze_batch) [data-testid="stSelectbox"]{max-width:860px;margin:0 auto 12px}
 @media(max-width:700px){.block-container:has(.st-key-analyze_single),.block-container:has(.st-key-analyze_batch){padding:12px 14px 24px!important}.block-container:has(.st-key-analyze_single) .hero,.block-container:has(.st-key-analyze_batch) .hero{padding:21px 19px;border-radius:17px}.block-container:has(.st-key-analyze_single) .glass,.block-container:has(.st-key-analyze_batch) .glass{padding:16px 17px}.block-container:has(.st-key-analyze_single) .stTextArea textarea,.block-container:has(.st-key-analyze_batch) .stTextArea textarea{min-height:170px!important}}
+
+/* Compact liquid-style sentiment donut and balanced result cards */
+.sentiment-donut-wrap{width:100%;display:flex;align-items:center;justify-content:center;padding:2px 0 8px}
+.sentiment-donut{display:block;width:min(100%,228px);height:auto;overflow:visible;filter:drop-shadow(0 8px 15px rgba(40,45,65,.08))}
+.donut-center-value{font:400 25px Poppins,sans-serif;fill:#202020;letter-spacing:-.045em}
+.donut-center-label{font:400 9px Poppins,sans-serif;fill:#888;letter-spacing:.15em}
+.block-container:has(.st-key-back_input) .hero{margin-bottom:16px!important}
+.block-container:has(.st-key-back_input) [data-testid="stHorizontalBlock"]{align-items:stretch}
+.block-container:has(.st-key-back_input) [data-testid="stColumn"]{min-width:0}
+.block-container:has(.st-key-back_input) .glass{height:auto;min-height:0}
+.block-container:has(.st-key-back_input) .glass:has(.sentiment-donut-wrap){display:flex;flex-direction:column}
+.block-container:has(.st-key-back_input) .glass:has(.sentiment-donut-wrap) h3{margin-bottom:4px}
+.block-container:has(.st-key-back_input) .glass:has(.sentiment-donut-wrap) .sentiment-donut-wrap{flex:1;min-height:215px}
+.block-container:has(.st-key-back_input) .footer{display:none!important}
+@media(max-width:760px){.sentiment-donut{width:min(100%,205px)}.block-container:has(.st-key-back_input) .glass:has(.sentiment-donut-wrap) .sentiment-donut-wrap{min-height:195px}}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -987,25 +1003,45 @@ def analyze_many(analyzer, reviews: List[str]) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 def donut_chart(values: Dict[str, float], center_label: str, center_value: str, height: int = 310):
+    """Build a compact SVG donut with rounded segment caps."""
     labels = ["Positive", "Neutral", "Negative"]
-    colors = ["#27A982", "#E8B45D", "#E16D79"]
-    # Use the explicit data-list constructor for compatibility across Plotly releases.
-    fig = plotly_go.Figure(data=[plotly_go.Pie(
-        labels=labels, values=[values.get(x, 0) for x in labels], hole=0.70,
-        sort=False, direction="clockwise", rotation=90,
-        marker=dict(colors=colors, line=dict(color="rgba(255,255,255,.95)", width=5)),
-        textinfo="none", hovertemplate="%{label}<br>%{value:.1%}<extra></extra>",
-    )])
-    fig.update_layout(
-        height=height, margin=dict(l=8,r=8,t=8,b=8), showlegend=True,
-        legend=dict(orientation="h", y=-.06, x=.5, xanchor="center",
-                    font=dict(family="Poppins", size=11, color="#77839A")),
-        paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        annotations=[dict(text=f"{center_value}<br><span style='font-size:10px;color:#8792A5'>{center_label}</span>",
-                          x=.5,y=.51,showarrow=False,font=dict(family="Poppins",size=23,color="#26334B"))],
-        font=dict(family="Poppins",color="#77839A"),
-    )
-    return fig
+    gradients = [("#45C69A", "#168D70"), ("#F4C875", "#D99A3D"), ("#F18A98", "#D95D70")]
+    total = sum(max(0.0, float(values.get(label, 0))) for label in labels) or 1.0
+    radius = 78
+    circumference = 2 * 3.141592653589793 * radius
+    gap = 3.5
+    offset = 0.0
+    segments = []
+    for index, label in enumerate(labels):
+        amount = max(0.0, float(values.get(label, 0)))
+        if amount <= 0:
+            continue
+        arc = circumference * amount / total
+        visible_arc = max(0.0, arc - gap)
+        segments.append(
+            f'<circle cx="110" cy="110" r="{radius}" fill="none" '
+            f'stroke="url(#sentimentGradient{index})" stroke-width="23" '
+            f'stroke-linecap="round" stroke-dasharray="{visible_arc:.3f} {circumference-visible_arc:.3f}" '
+            f'stroke-dashoffset="{-offset:.3f}" />'
+        )
+        offset += arc
+
+    svg = f"""
+    <div class="sentiment-donut-wrap">
+      <svg class="sentiment-donut" viewBox="0 0 220 220" role="img" aria-label="Sentiment distribution">
+        <defs>
+          <linearGradient id="sentimentGradient0" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="{gradients[0][0]}"/><stop offset="100%" stop-color="{gradients[0][1]}"/></linearGradient>
+          <linearGradient id="sentimentGradient1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="{gradients[1][0]}"/><stop offset="100%" stop-color="{gradients[1][1]}"/></linearGradient>
+          <linearGradient id="sentimentGradient2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="{gradients[2][0]}"/><stop offset="100%" stop-color="{gradients[2][1]}"/></linearGradient>
+        </defs>
+        <circle cx="110" cy="110" r="{radius}" fill="none" stroke="#F0F0F0" stroke-width="23"/>
+        <g transform="rotate(-90 110 110)">{"".join(segments)}</g>
+        <text x="110" y="105" text-anchor="middle" class="donut-center-value">{center_value}</text>
+        <text x="110" y="126" text-anchor="middle" class="donut-center-label">{center_label}</text>
+      </svg>
+    </div>
+    """
+    return svg
 
 def brandbar():
     st.markdown("""
@@ -1176,8 +1212,7 @@ elif st.session_state.page == "results":
             st.markdown('</div>', unsafe_allow_html=True)
         with right:
             st.markdown('<div class="glass"><div class="kicker">POLARITY DISTRIBUTION</div><h3>Sentiment composition</h3><p class="muted">Share of positive, neutral and negative language signals.</p>', unsafe_allow_html=True)
-            chart = donut_chart({"Positive":scores["pos"],"Neutral":scores["neu"],"Negative":scores["neg"]},"POLARITY","100%",300)
-            st.plotly_chart(chart, use_container_width=True, config={"displayModeBar":False})
+            st.markdown(donut_chart({"Positive":scores["pos"],"Neutral":scores["neu"],"Negative":scores["neg"]},"POLARITY","100%"), unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
         p,n,ng = st.columns(3)
         p.metric("Positive", f'{scores["pos"]*100:.1f}%')
@@ -1197,7 +1232,7 @@ elif st.session_state.page == "results":
         chart_col, table_col = st.columns([.8,1.2], gap="large")
         with chart_col:
             st.markdown('<div class="glass"><div class="kicker">POLARITY DISTRIBUTION</div><h3>Sentiment composition</h3>', unsafe_allow_html=True)
-            st.plotly_chart(donut_chart(summary,"TOTAL",str(total),300),use_container_width=True,config={"displayModeBar":False})
+            st.markdown(donut_chart(summary,"TOTAL",str(total)), unsafe_allow_html=True)
             st.markdown('</div>', unsafe_allow_html=True)
         with table_col:
             st.markdown('<div class="glass"><div class="kicker">REVIEW EXPLORER</div><h3>Individual results</h3><p class="muted">Filter and inspect your analyzed feedback.</p>', unsafe_allow_html=True)
@@ -1212,4 +1247,3 @@ elif st.session_state.page == "results":
             go("home")
             st.rerun()
 
-st.markdown('<div class="footer">TERNA SENTIMENT ANALYZER · POWERED BY NLTK VADER</div>', unsafe_allow_html=True)
