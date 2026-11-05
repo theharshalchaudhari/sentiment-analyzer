@@ -579,6 +579,28 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
   .block-container:has(.landing-hero) .st-key-start button p{font-size:15px!important}
 }
 
+/* Refine hero vertical position and keep the headline to two lines. */
+.block-container:has(.landing-hero) .landing-hero{
+  margin-top:clamp(28px,6.5vh,76px)!important;
+}
+.block-container:has(.landing-hero) .landing-title{
+  width:100%!important;
+  max-width:1400px!important;
+  margin-bottom:12px!important;
+}
+.block-container:has(.landing-hero) .landing-subtitle{
+  max-width:780px!important;
+  margin-top:0!important;
+}
+@media(max-width:850px){
+  .block-container:has(.landing-hero) .landing-hero{
+    margin-top:clamp(26px,5vh,58px)!important;
+  }
+  .block-container:has(.landing-hero) .landing-title{
+    max-width:100%!important;
+  }
+}
+
 </style>
 """, unsafe_allow_html=True)
 
