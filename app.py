@@ -601,6 +601,89 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
   }
 }
 
+/* Monochrome dashboard preview with the landing-page mark. */
+.block-container:has(.landing-hero) .dashboard-preview{
+  color:#000!important;
+  background:rgba(255,255,255,.78)!important;
+  border-color:#111!important;
+}
+.block-container:has(.landing-hero) .preview-sidebar,
+.block-container:has(.landing-hero) .preview-main,
+.block-container:has(.landing-hero) .preview-metric,
+.block-container:has(.landing-hero) .preview-panel{
+  color:#000!important;
+  background:#fff!important;
+  border-color:#111!important;
+  box-shadow:none!important;
+}
+.block-container:has(.landing-hero) .preview-brand{
+  color:#000!important;
+}
+.block-container:has(.landing-hero) .preview-mark{
+  display:grid!important;
+  place-items:center!important;
+  color:#fff!important;
+  background:#000!important;
+  border-radius:7px!important;
+}
+.block-container:has(.landing-hero) .preview-mark svg{
+  display:block!important;
+  width:16px!important;
+  height:16px!important;
+}
+.block-container:has(.landing-hero) .preview-nav,
+.block-container:has(.landing-hero) .preview-nav.active,
+.block-container:has(.landing-hero) .preview-head strong,
+.block-container:has(.landing-hero) .preview-head span,
+.block-container:has(.landing-hero) .preview-metric small,
+.block-container:has(.landing-hero) .preview-metric b,
+.block-container:has(.landing-hero) .preview-metric em,
+.block-container:has(.landing-hero) .preview-panel-title,
+.block-container:has(.landing-hero) .sentiment-row,
+.block-container:has(.landing-hero) .sentiment-row b{
+  color:#000!important;
+}
+.block-container:has(.landing-hero) .preview-nav.active{
+  background:#eee!important;
+}
+.block-container:has(.landing-hero) .preview-head{
+  align-items:flex-start!important;
+}
+.block-container:has(.landing-hero) .preview-head > div{
+  order:2!important;
+  margin-left:auto!important;
+  text-align:right!important;
+}
+.block-container:has(.landing-hero) .preview-head > span{
+  order:1!important;
+  margin-right:auto!important;
+  color:#000!important;
+}
+.block-container:has(.landing-hero) .preview-head strong{
+  display:inline-block!important;
+  font-size:21px!important;
+  line-height:1.3!important;
+}
+.block-container:has(.landing-hero) .preview-metric em{
+  color:#000!important;
+}
+.block-container:has(.landing-hero) .mini-bars{
+  border-bottom-color:#000!important;
+  background:repeating-linear-gradient(to bottom,transparent 0,transparent 26px,#e5e5e5 27px)!important;
+}
+.block-container:has(.landing-hero) .mini-bars i{
+  background:#000!important;
+  opacity:1!important;
+}
+.block-container:has(.landing-hero) .sentiment-dot{
+  background:#000!important;
+}
+.block-container:has(.landing-hero) .preview-mark,
+.block-container:has(.landing-hero) .preview-metric,
+.block-container:has(.landing-hero) .preview-panel{
+  border-color:#d4d4d4!important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -706,7 +789,7 @@ if st.session_state.page == "home":
     <section class="dashboard-preview">
       <div class="preview-shell">
         <aside class="preview-sidebar">
-          <div class="preview-brand"><span class="preview-mark"></span> TERNA SENTIMENT ANALYZER</div>
+          <div class="preview-brand"><span class="preview-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></span> TERNA SENTIMENT ANALYZER</div>
           <div class="preview-nav active">▦ &nbsp; Overview</div>
           <div class="preview-nav">▤ &nbsp; Single analysis</div>
           <div class="preview-nav">▧ &nbsp; Batch reviews</div>
