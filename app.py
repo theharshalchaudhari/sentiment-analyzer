@@ -1029,6 +1029,76 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
   .block-container:has(.st-key-back_input) .sentiment-donut{width:min(100%,260px)!important}
 }
 
+
+/* Browser-viewport-aware sizing across the complete application.
+   Use dynamic viewport units so browser chrome is excluded from the available height. */
+:root{--app-visible-height:100dvh}
+@supports not (height:100dvh){:root{--app-visible-height:100svh}}
+html,body,[data-testid="stAppViewContainer"],[data-testid="stMain"]{
+  min-height:var(--app-visible-height)!important;
+}
+[data-testid="stMain"] [data-testid="stMainBlockContainer"]{
+  min-height:var(--app-visible-height)!important;
+}
+.block-container{
+  box-sizing:border-box!important;
+  padding-top:clamp(10px,2.2dvh,20px)!important;
+  padding-bottom:clamp(12px,2.4dvh,22px)!important;
+}
+/* Results overview: compact vertical rhythm for normal browser windows */
+.block-container:has(.st-key-back_input) .hero{
+  padding:clamp(15px,2.4dvh,23px) clamp(18px,2.8vw,30px)!important;
+  margin-bottom:clamp(10px,1.8dvh,16px)!important;
+}
+.block-container:has(.st-key-back_input) .hero h1{
+  font-size:clamp(27px,3.5vw,40px)!important;
+  line-height:1.08!important;
+  margin-bottom:6px!important;
+}
+.block-container:has(.st-key-back_input) .hero p{
+  font-size:clamp(10px,1.15vw,12px)!important;
+  line-height:1.45!important;
+}
+.block-container:has(.st-key-back_input) [data-testid="stMetric"]{
+  padding:clamp(8px,1.5dvh,13px) clamp(10px,1.5vw,15px)!important;
+}
+.block-container:has(.st-key-back_input) [data-testid="stMetricValue"]{
+  font-size:clamp(19px,2.1vw,23px)!important;
+}
+.block-container:has(.st-key-back_input) .glass{
+  padding:clamp(12px,1.8dvh,18px)!important;
+  margin-bottom:clamp(7px,1.2dvh,11px)!important;
+}
+.block-container:has(.st-key-back_input) .sentiment-donut-wrap{
+  min-height:0!important;
+  padding:0!important;
+}
+.block-container:has(.st-key-back_input) .sentiment-donut{
+  width:min(100%,clamp(165px,24dvh,220px))!important;
+}
+.block-container:has(.st-key-back_input) [data-testid="stDataFrame"]{
+  max-height:clamp(150px,27dvh,220px)!important;
+}
+.block-container:has(.st-key-back_input) [data-testid="stHorizontalBlock"]{
+  gap:clamp(10px,1.5vw,20px)!important;
+}
+/* Compact laptop/browser window: keep the overview and its data visible without relying on F11. */
+@media(min-width:761px) and (max-height:800px){
+  .block-container:has(.st-key-back_input){padding-top:8px!important;padding-bottom:10px!important}
+  .block-container:has(.st-key-back_input) .hero{padding:12px 22px!important;margin-bottom:8px!important}
+  .block-container:has(.st-key-back_input) .hero h1{font-size:29px!important}
+  .block-container:has(.st-key-back_input) [data-testid="stMetric"]{padding:7px 10px!important}
+  .block-container:has(.st-key-back_input) .glass{padding:10px 13px!important}
+  .block-container:has(.st-key-back_input) .sentiment-donut{width:min(100%,175px)!important}
+  .block-container:has(.st-key-back_input) [data-testid="stDataFrame"]{max-height:180px!important}
+}
+/* On narrow screens, preserve natural document scrolling rather than clipping content. */
+@media(max-width:760px){
+  [data-testid="stMain"],[data-testid="stMain"] [data-testid="stMainBlockContainer"],
+  .block-container{height:auto!important;max-height:none!important;overflow:visible!important}
+  .block-container:has(.st-key-back_input) .sentiment-donut{width:min(100%,230px)!important}
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -1299,7 +1369,7 @@ elif st.session_state.page == "results":
             st.markdown('<div class="glass"><div class="kicker">REVIEW EXPLORER</div><h3>Individual results</h3><p class="muted">Filter and inspect your analyzed feedback.</p>', unsafe_allow_html=True)
             filter_value = st.selectbox("Filter sentiment",["All","Positive","Neutral","Negative"],label_visibility="collapsed")
             view = df if filter_value == "All" else df[df["Sentiment"] == filter_value]
-            st.dataframe(view, use_container_width=True, hide_index=True, height=285)
+            st.dataframe(view, use_container_width=True, hide_index=True, height=210)
             st.markdown('</div>', unsafe_allow_html=True)
         st.download_button("Download results as CSV",data=df.to_csv(index=False).encode("utf-8-sig"),file_name="sentiment-analysis-results.csv",mime="text/csv",use_container_width=True)
     else:
