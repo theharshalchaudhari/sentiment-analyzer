@@ -989,12 +989,13 @@ def analyze_many(analyzer, reviews: List[str]) -> pd.DataFrame:
 def donut_chart(values: Dict[str, float], center_label: str, center_value: str, height: int = 310):
     labels = ["Positive", "Neutral", "Negative"]
     colors = ["#27A982", "#E8B45D", "#E16D79"]
-    fig = go.Figure(go.Pie(
-        labels=labels, values=[values.get(x, 0) for x in labels], hole=.70,
+    # Use the explicit data-list constructor for compatibility across Plotly releases.
+    fig = go.Figure(data=[go.Pie(
+        labels=labels, values=[values.get(x, 0) for x in labels], hole=0.70,
         sort=False, direction="clockwise", rotation=90,
         marker=dict(colors=colors, line=dict(color="rgba(255,255,255,.95)", width=5)),
         textinfo="none", hovertemplate="%{label}<br>%{value:.1%}<extra></extra>",
-    ))
+    )])
     fig.update_layout(
         height=height, margin=dict(l=8,r=8,t=8,b=8), showlegend=True,
         legend=dict(orientation="h", y=-.06, x=.5, xanchor="center",
@@ -1175,7 +1176,11 @@ elif st.session_state.page == "results":
             st.markdown('</div>', unsafe_allow_html=True)
         with right:
             st.markdown('<div class="glass"><div class="kicker">POLARITY DISTRIBUTION</div><h3>Sentiment composition</h3><p class="muted">Share of positive, neutral and negative language signals.</p>', unsafe_allow_html=True)
-            st.plotly_chart(donut_chart({"Positive":scores["pos"],"Neutral":scores["neu"],"Negative":scores["neg"]},"POLARITY","100%",300), use_container_width=True, config={"displayModeBar":False})
+            try:
+                chart = donut_chart({"Positive":scores["pos"],"Neutral":scores["neu"],"Negative":scores["neg"]},"POLARITY","100%",300)
+                st.plotly_chart(chart, use_container_width=True, config={"displayModeBar":False})
+            except Exception:
+                st.warning("The sentiment chart could not be rendered in this environment. The sentiment scores below are still available.")
             st.markdown('</div>', unsafe_allow_html=True)
         p,n,ng = st.columns(3)
         p.metric("Positive", f'{scores["pos"]*100:.1f}%')
