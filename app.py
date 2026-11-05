@@ -1099,6 +1099,77 @@ html,body,[data-testid="stAppViewContainer"],[data-testid="stMain"]{
   .block-container:has(.st-key-back_input) .sentiment-donut{width:min(100%,230px)!important}
 }
 
+
+/* Batch results page: consistent metric tiles, larger chart and clear export action */
+.block-container:has(.st-key-download_batch_csv) [data-testid="stMetric"]{
+  height:104px!important;
+  min-height:104px!important;
+  box-sizing:border-box!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:center!important;
+  padding:12px 15px!important;
+}
+.block-container:has(.st-key-download_batch_csv) [data-testid="stMetricLabel"]{
+  min-height:18px!important;
+  display:flex!important;
+  align-items:center!important;
+}
+.block-container:has(.st-key-download_batch_csv) [data-testid="stMetricValue"]{
+  line-height:1.15!important;
+  min-height:29px!important;
+  display:flex!important;
+  align-items:center!important;
+}
+.block-container:has(.st-key-download_batch_csv) .sentiment-donut-wrap{
+  min-height:0!important;
+  padding:12px 0 8px!important;
+}
+.block-container:has(.st-key-download_batch_csv) .sentiment-donut{
+  width:min(100%,285px)!important;
+  max-height:none!important;
+}
+.block-container:has(.st-key-download_batch_csv) .glass:has(.sentiment-donut-wrap){
+  min-height:345px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  justify-content:flex-start!important;
+}
+.block-container:has(.st-key-download_batch_csv) .glass:has(.sentiment-donut-wrap) .sentiment-donut-wrap{
+  flex:1 1 auto!important;
+}
+.block-container:has(.st-key-download_batch_csv) .st-key-download_batch_csv{
+  margin-top:12px!important;
+}
+.block-container:has(.st-key-download_batch_csv) .st-key-download_batch_csv button{
+  min-height:46px!important;
+  background:#171717!important;
+  color:#fff!important;
+  border:1px solid #171717!important;
+  border-radius:12px!important;
+  box-shadow:none!important;
+  font-weight:400!important;
+}
+.block-container:has(.st-key-download_batch_csv) .st-key-download_batch_csv button:hover{
+  background:#333!important;
+  border-color:#333!important;
+  color:#fff!important;
+}
+@media(min-width:761px) and (max-height:800px){
+  .block-container:has(.st-key-download_batch_csv) [data-testid="stMetric"]{
+    height:86px!important;min-height:86px!important;padding:8px 11px!important;
+  }
+  .block-container:has(.st-key-download_batch_csv) .glass:has(.sentiment-donut-wrap){min-height:285px!important}
+  .block-container:has(.st-key-download_batch_csv) .sentiment-donut{width:min(100%,235px)!important}
+}
+@media(max-width:760px){
+  .block-container:has(.st-key-download_batch_csv) [data-testid="stMetric"]{
+    height:90px!important;min-height:90px!important;
+  }
+  .block-container:has(.st-key-download_batch_csv) .glass:has(.sentiment-donut-wrap){min-height:0!important}
+  .block-container:has(.st-key-download_batch_csv) .sentiment-donut{width:min(100%,250px)!important}
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -1360,7 +1431,7 @@ elif st.session_state.page == "results":
         m2.metric("Positive",summary["Positive"],f'{summary["Positive"]/total*100:.1f}%')
         m3.metric("Neutral",summary["Neutral"],f'{summary["Neutral"]/total*100:.1f}%')
         m4.metric("Negative",summary["Negative"],f'{summary["Negative"]/total*100:.1f}%')
-        chart_col, table_col = st.columns([.8,1.2], gap="large")
+        chart_col, table_col = st.columns([.9,1.1], gap="large")
         with chart_col:
             st.markdown('<div class="glass"><div class="kicker">POLARITY DISTRIBUTION</div><h3>Sentiment composition</h3>', unsafe_allow_html=True)
             st.markdown(donut_chart(summary,"TOTAL",str(total)), unsafe_allow_html=True)
@@ -1371,7 +1442,7 @@ elif st.session_state.page == "results":
             view = df if filter_value == "All" else df[df["Sentiment"] == filter_value]
             st.dataframe(view, use_container_width=True, hide_index=True, height=210)
             st.markdown('</div>', unsafe_allow_html=True)
-        st.download_button("Download results as CSV",data=df.to_csv(index=False).encode("utf-8-sig"),file_name="sentiment-analysis-results.csv",mime="text/csv",use_container_width=True)
+        st.download_button("Download results as CSV",data=df.to_csv(index=False).encode("utf-8-sig"),file_name="sentiment-analysis-results.csv",mime="text/csv",use_container_width=True,key="download_batch_csv")
     else:
         st.info("No analysis result is available. Start a new analysis.")
         if st.button("Back to home"):
