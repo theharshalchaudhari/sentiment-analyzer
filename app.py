@@ -18,9 +18,9 @@ st.set_page_config(page_title="Terna Sentiment Analyzer", page_icon=" ", layout=
 # independent of the page content, so navigation does not reset its position.
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 :root{--ink:#172033;--muted:#77839a;--blue:#596ff0;--green:#1b9b76;--red:#df6570;--amber:#bd8a38}
-html,body,[class*="css"]{font-family:'DM Sans',sans-serif}
+html,body,[class*="css"]{font-family:'Poppins',sans-serif}
 .stApp{background:transparent;color:var(--ink)}
 [data-testid="stAppViewContainer"]{background:linear-gradient(135deg,#f5f7fd,#eef2fa 52%,#f8f6fc);position:relative;isolation:isolate}
 [data-testid="stAppViewContainer"]::before,[data-testid="stAppViewContainer"]::after{content:"";position:fixed;z-index:0;pointer-events:none;border-radius:50%;filter:blur(75px);opacity:.58;will-change:transform}
@@ -337,7 +337,7 @@ hr{border-color:#ffffffa8!important}
 .brand-status{display:none}
 .landing-hero{min-height:300px;text-align:left!important;display:flex;flex-direction:column;align-items:flex-start!important;justify-content:center!important;padding:48px 0 24px!important;margin:0!important}
 .landing-hero .announcement{background:#fff!important;border:1px solid #e8e8e8!important;color:#4b5563!important;border-radius:999px!important}
-.landing-title{max-width:850px!important;text-align:left!important;color:#111!important;font-family:Manrope,sans-serif!important;font-weight:500!important;letter-spacing:-.065em!important;line-height:1.02!important;font-size:clamp(42px,6.3vw,78px)!important}
+.landing-title{max-width:850px!important;text-align:left!important;color:#111!important;font-family:'Poppins',sans-serif!important;font-weight:500!important;letter-spacing:-.065em!important;line-height:1.02!important;font-size:clamp(42px,6.3vw,78px)!important}
 .landing-title span,.landing-title strong{color:#111!important}
 .landing-subtitle{max-width:650px!important;text-align:left!important;color:#6b7280!important;font-size:clamp(15px,1.5vw,19px)!important;line-height:1.7!important;margin:18px 0 0!important}
 .landing-actions{max-width:460px!important;margin:10px 0 0!important}
@@ -389,6 +389,17 @@ hr{border-color:#ffffffa8!important}
 @media(max-width:850px){.block-container:has(.landing-hero) .landing-hero{margin-top:clamp(64px,13vh,115px)!important}.block-container:has(.landing-hero) .dashboard-preview{margin-top:clamp(34px,6vh,60px)!important;height:29svh!important}.block-container:has(.landing-hero) .preview-shell{grid-template-columns:1fr!important}.block-container:has(.landing-hero) .preview-sidebar{display:none!important}}
 @media(max-width:560px){.block-container:has(.landing-hero){padding:12px 14px 0!important}.block-container:has(.landing-hero) .brand{font-size:14px!important}.block-container:has(.landing-hero) .landing-hero{margin-top:clamp(70px,15vh,125px)!important;padding:0 4px!important}.block-container:has(.landing-hero) .landing-title{font-size:clamp(34px,9.4vw,46px)!important;line-height:1.16!important}.block-container:has(.landing-hero) .landing-subtitle{font-size:12px!important;line-height:1.75!important}.block-container:has(.landing-hero) .landing-actions{width:min(100%,300px)!important;margin-top:24px!important}.block-container:has(.landing-hero) .landing-actions .stButton>button{min-height:60px!important;font-size:16px!important;padding:0 26px!important}.block-container:has(.landing-hero) .dashboard-preview{height:27svh!important;min-height:165px!important;margin-top:clamp(32px,6vh,48px)!important;border-radius:22px 22px 0 0!important}.block-container:has(.landing-hero) .preview-main{padding:17px!important}.block-container:has(.landing-hero) .preview-metrics{grid-template-columns:repeat(3,minmax(0,1fr))!important}.block-container:has(.landing-hero) .preview-metric{padding:10px 8px!important}.block-container:has(.landing-hero) .preview-metric b{font-size:17px!important}}
 
+
+/* Cogniscan typography system: Poppins only, regular weight throughout. */
+html,body,[class*="css"],.stApp,.stApp *,
+[data-testid="stAppViewContainer"],[data-testid="stAppViewContainer"] *,
+[data-testid="stMain"],[data-testid="stMain"] *,
+button,input,textarea,select,label,
+h1,h2,h3,h4,h5,h6,strong,b,th {
+  font-family:'Poppins',sans-serif!important;
+  font-weight:400!important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -432,16 +443,16 @@ def donut_chart(values: Dict[str, float], center_label: str, center_value: str, 
         labels=labels, values=[values.get(x, 0) for x in labels], hole=.70,
         sort=False, direction="clockwise", rotation=90,
         marker=dict(colors=colors, line=dict(color="rgba(255,255,255,.95)", width=5)),
-        textinfo="none", hovertemplate="<b>%{label}</b><br>%{value:.1%}<extra></extra>",
+        textinfo="none", hovertemplate="%{label}<br>%{value:.1%}<extra></extra>",
     ))
     fig.update_layout(
         height=height, margin=dict(l=8,r=8,t=8,b=8), showlegend=True,
         legend=dict(orientation="h", y=-.06, x=.5, xanchor="center",
-                    font=dict(family="DM Sans", size=11, color="#77839A")),
+                    font=dict(family="Poppins", size=11, color="#77839A")),
         paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-        annotations=[dict(text=f"<b>{center_value}</b><br><span style='font-size:10px;color:#8792A5'>{center_label}</span>",
-                          x=.5,y=.51,showarrow=False,font=dict(family="Manrope",size=23,color="#26334B"))],
-        font=dict(family="DM Sans",color="#77839A"),
+        annotations=[dict(text=f"{center_value}<br><span style='font-size:10px;color:#8792A5'>{center_label}</span>",
+                          x=.5,y=.51,showarrow=False,font=dict(family="Poppins",size=23,color="#26334B"))],
+        font=dict(family="Poppins",color="#77839A"),
     )
     return fig
 
@@ -608,7 +619,7 @@ elif st.session_state.page == "results":
         with left:
             st.markdown('<div class="glass"><div class="kicker">OVERALL SENTIMENT</div>', unsafe_allow_html=True)
             color = {"Positive":"#1b9b76","Neutral":"#bd8a38","Negative":"#df6570"}[result["label"]]
-            st.markdown(f'<div style="font:800 29px Manrope;color:{color};margin:7px 0">{result["label"]}</div><div class="muted">Compound score</div><div class="score">{scores["compound"]:+.3f}</div><div class="muted">Scale: −1.0 (negative) to +1.0 (positive)</div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div style="font:400 29px 'Poppins';color:{color};margin:7px 0">{result["label"]}</div><div class="muted">Compound score</div><div class="score">{scores["compound"]:+.3f}</div><div class="muted">Scale: −1.0 (negative) to +1.0 (positive)</div></div>', unsafe_allow_html=True)
             st.markdown('<div class="glass"><div class="kicker">ANALYZED TEXT</div>', unsafe_allow_html=True)
             st.write(result["text"])
             st.markdown('</div>', unsafe_allow_html=True)
