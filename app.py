@@ -1014,6 +1014,21 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
   .block-container:has(.st-key-back_input) .sentiment-donut{width:min(100%,175px)!important}
 }
 
+
+/* Standalone large donut: remove the enclosing polarity card */
+.block-container:has(.st-key-back_input) .sentiment-donut-wrap{
+  min-height:0!important;
+  padding:8px 0!important;
+}
+.block-container:has(.st-key-back_input) .sentiment-donut{
+  width:min(100%,310px)!important;
+  max-height:none!important;
+  filter:drop-shadow(0 14px 24px rgba(40,45,65,.10));
+}
+@media(max-width:760px){
+  .block-container:has(.st-key-back_input) .sentiment-donut{width:min(100%,260px)!important}
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -1259,9 +1274,7 @@ elif st.session_state.page == "results":
             st.write(result["text"])
             st.markdown('</div>', unsafe_allow_html=True)
         with right:
-            st.markdown('<div class="glass"><div class="kicker">POLARITY DISTRIBUTION</div><h3>Sentiment composition</h3><p class="muted">Share of positive, neutral and negative language signals.</p>', unsafe_allow_html=True)
             st.markdown(donut_chart({"Positive":scores["pos"],"Neutral":scores["neu"],"Negative":scores["neg"]},"POLARITY","100%"), unsafe_allow_html=True)
-            st.markdown('</div>', unsafe_allow_html=True)
         p,n,ng = st.columns(3)
         p.metric("Positive", f'{scores["pos"]*100:.1f}%')
         n.metric("Neutral", f'{scores["neu"]*100:.1f}%')
