@@ -356,6 +356,39 @@ hr{border-color:#ffffffa8!important}
  .trust-row{flex-wrap:wrap!important;gap:10px!important}
 }
 
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+/* Centered hero, one prominent CTA, and a deliberately cropped dashboard card. */
+.block-container:has(.landing-hero){display:flex!important;flex-direction:column!important;height:100svh!important;min-height:100svh!important;max-height:100svh!important;overflow:hidden!important;padding:12px clamp(18px,4.5vw,72px) 0!important}
+.block-container:has(.landing-hero) .brandbar{flex:0 0 auto;margin:0 auto!important;width:min(100%,1420px)}
+.block-container:has(.landing-hero) .landing-hero{flex:0 0 auto;width:100%;min-height:0!important;margin:clamp(52px,11vh,118px) auto 0!important;padding:0 12px!important;text-align:center!important;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.block-container:has(.landing-hero) .landing-title{max-width:1080px!important;margin:0 auto 17px!important;font-family:'Poppins',sans-serif!important;font-weight:600!important;font-size:clamp(36px,5.1vw,68px)!important;line-height:1.14!important;letter-spacing:-.055em!important}
+.block-container:has(.landing-hero) .landing-subtitle{max-width:740px!important;margin:0 auto!important;font-family:'Poppins',sans-serif!important;font-size:clamp(13px,1.25vw,16px)!important;line-height:1.8!important;color:#697386!important}
+.block-container:has(.landing-hero) .landing-actions{flex:0 0 auto;width:min(100%,330px)!important;margin:26px auto 0!important;display:flex!important;justify-content:center!important}
+.block-container:has(.landing-hero) .landing-actions .stButton{width:100%!important}
+.block-container:has(.landing-hero) .landing-actions .stButton>button{width:100%!important;min-height:64px!important;padding:0 32px!important;border-radius:999px!important;border:1px solid rgba(255,255,255,.75)!important;background:#171923!important;color:#fff!important;box-shadow:0 14px 32px rgba(25,29,48,.18)!important;font-family:'Poppins',sans-serif!important;font-size:17px!important;font-weight:600!important;letter-spacing:.005em!important;transition:transform .2s ease,box-shadow .2s ease,background .2s ease!important}
+.block-container:has(.landing-hero) .landing-actions .stButton>button:hover{transform:translateY(-3px)!important;background:#292d3b!important;box-shadow:0 18px 38px rgba(25,29,48,.24)!important}
+.block-container:has(.landing-hero) .dashboard-preview{flex:0 0 auto;width:min(100%,1120px)!important;max-width:1120px!important;height:31svh!important;min-height:190px!important;max-height:290px!important;margin:clamp(38px,7vh,76px) auto 0!important;overflow:hidden!important;border-radius:27px 27px 0 0!important;border:1px solid rgba(255,255,255,.9)!important;background:rgba(255,255,255,.58)!important;box-shadow:0 24px 90px rgba(55,65,125,.17),0 2px 12px rgba(55,65,125,.05)!important;backdrop-filter:blur(34px) saturate(165%)!important}
+.block-container:has(.landing-hero) .preview-shell{height:470px!important;min-height:470px!important;grid-template-columns:190px minmax(0,1fr)!important}
+.block-container:has(.landing-hero) .preview-sidebar{padding:24px 17px!important;background:rgba(255,255,255,.52)!important;border-right:1px solid rgba(222,226,239,.8)!important}
+.block-container:has(.landing-hero) .preview-brand{font-family:'Poppins',sans-serif!important;font-size:11px!important;letter-spacing:-.02em;margin-bottom:26px!important}
+.block-container:has(.landing-hero) .preview-nav{border-radius:11px!important;padding:11px 12px!important;font-family:'Poppins',sans-serif!important;font-size:10px!important}
+.block-container:has(.landing-hero) .preview-nav.active{background:#eef0ff!important;color:#5268db!important}
+.block-container:has(.landing-hero) .preview-main{padding:25px 28px!important}
+.block-container:has(.landing-hero) .preview-head{margin-bottom:19px!important}
+.block-container:has(.landing-hero) .preview-head strong{font-family:'Poppins',sans-serif!important;font-size:16px!important;font-weight:600!important;color:#20283d!important}
+.block-container:has(.landing-hero) .preview-head span{font-family:'Poppins',sans-serif!important;font-size:9px!important;letter-spacing:.08em}
+.block-container:has(.landing-hero) .preview-metric{padding:16px!important;border-radius:16px!important;border:1px solid #e9ecf5!important;background:rgba(255,255,255,.78)!important;box-shadow:0 5px 18px rgba(40,50,90,.035)!important}
+.block-container:has(.landing-hero) .preview-metric small{font-family:'Poppins',sans-serif!important;font-size:10px!important;color:#7c8598!important}
+.block-container:has(.landing-hero) .preview-metric b{font-family:'Poppins',sans-serif!important;font-size:25px!important;color:#20283d!important}
+.block-container:has(.landing-hero) .preview-metric em{font-family:'Poppins',sans-serif!important;font-size:9px!important}
+.block-container:has(.landing-hero) .preview-panel{border-radius:16px!important;border:1px solid #e9ecf5!important;background:rgba(255,255,255,.78)!important;min-height:165px!important}
+.block-container:has(.landing-hero) .preview-panel-title{font-family:'Poppins',sans-serif!important;font-size:11px!important}
+.block-container:has(.landing-hero) .sentiment-row{font-family:'Poppins',sans-serif!important;font-size:10px!important}
+.block-container:has(.landing-hero) .footer{display:none!important}
+@media(max-width:850px){.block-container:has(.landing-hero) .landing-hero{margin-top:clamp(64px,13vh,115px)!important}.block-container:has(.landing-hero) .dashboard-preview{margin-top:clamp(34px,6vh,60px)!important;height:29svh!important}.block-container:has(.landing-hero) .preview-shell{grid-template-columns:1fr!important}.block-container:has(.landing-hero) .preview-sidebar{display:none!important}}
+@media(max-width:560px){.block-container:has(.landing-hero){padding:12px 14px 0!important}.block-container:has(.landing-hero) .brand{font-size:14px!important}.block-container:has(.landing-hero) .landing-hero{margin-top:clamp(70px,15vh,125px)!important;padding:0 4px!important}.block-container:has(.landing-hero) .landing-title{font-size:clamp(34px,9.4vw,46px)!important;line-height:1.16!important}.block-container:has(.landing-hero) .landing-subtitle{font-size:12px!important;line-height:1.75!important}.block-container:has(.landing-hero) .landing-actions{width:min(100%,300px)!important;margin-top:24px!important}.block-container:has(.landing-hero) .landing-actions .stButton>button{min-height:60px!important;font-size:16px!important;padding:0 26px!important}.block-container:has(.landing-hero) .dashboard-preview{height:27svh!important;min-height:165px!important;margin-top:clamp(32px,6vh,48px)!important;border-radius:22px 22px 0 0!important}.block-container:has(.landing-hero) .preview-main{padding:17px!important}.block-container:has(.landing-hero) .preview-metrics{grid-template-columns:repeat(3,minmax(0,1fr))!important}.block-container:has(.landing-hero) .preview-metric{padding:10px 8px!important}.block-container:has(.landing-hero) .preview-metric b{font-size:17px!important}}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -448,32 +481,16 @@ brandbar()
 if st.session_state.page == "home":
     st.markdown("""
     <section class="landing-hero">
-      <div class="announcement">✦ &nbsp; Intelligent sentiment insights are here &nbsp;›</div>
-      <h1 class="landing-title">Understand Every Review<br>With One Clear View</h1>
-      <p class="landing-subtitle">Turn customer feedback into meaningful sentiment insights. Analyze individual reviews or discover patterns across your entire dataset.</p>
+      <h1 class="landing-title">Understand Student Feedback.<br>See the Sentiment Across Your College.</h1>
+      <p class="landing-subtitle">Analyze sentiments across your college feedback dataset and understand what students are saying, what is working, and where improvements are needed.</p>
     </section>
     """, unsafe_allow_html=True)
     st.markdown('<div class="landing-actions">', unsafe_allow_html=True)
-    action_left, action_right = st.columns([1,1], gap="small")
-    with action_left:
-        if st.button("Start analyzing  →", type="primary", use_container_width=True, key="start"):
-            go("choose")
-            st.rerun()
-    with action_right:
-        if st.button("Explore batch analysis  ↗", type="secondary", use_container_width=True, key="explore_batch"):
-            st.session_state.mode = "batch"
-            go("input")
-            st.rerun()
+    if st.button("Start analyzing  ↗", type="primary", use_container_width=True, key="start"):
+        go("choose")
+        st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
     st.markdown("""
-    <div class="trust-row">
-      <span class="trust-item"><span class="trust-check">✓</span> No setup required</span>
-      <span class="trust-item"><span class="trust-check">✓</span> Instant analysis</span>
-      <span class="trust-item"><span class="trust-check">✓</span> Export results anytime</span>
-    </div>
-    <div class="float-tile left"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 19V11M10 19V5M16 19V8"/></svg></div>
-    <div class="float-tile right"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 6-6 4 3 8-9"/><path d="M15 5h6v6"/></svg></div>
-    <div class="float-tile far"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2a10 10 0 1 0 10 10h-10z"/><path d="M14 2.3V10h7.7A10 10 0 0 0 14 2.3z"/></svg></div>
     <section class="dashboard-preview">
       <div class="preview-shell">
         <aside class="preview-sidebar">
@@ -485,14 +502,14 @@ if st.session_state.page == "home":
           <div class="preview-nav">⚙ &nbsp; Settings</div>
         </aside>
         <div class="preview-main">
-          <div class="preview-head"><div><strong>Your sentiment overview</strong><br><span>Here's what's happening across your feedback</span></div><span>LIVE PREVIEW &nbsp; ◉</span></div>
+          <div class="preview-head"><div><strong>College feedback overview</strong><br><span>A snapshot of student sentiment across your institution</span></div><span>SAMPLE DASHBOARD &nbsp; ◉</span></div>
           <div class="preview-metrics">
-            <div class="preview-metric"><small>Reviews analyzed</small><b>2,480</b><em>↑ Feedback processed</em></div>
-            <div class="preview-metric"><small>Positive sentiment</small><b>68.4%</b><em>↑ Strong positive signal</em></div>
-            <div class="preview-metric"><small>Negative sentiment</small><b>12.6%</b><em>↓ Areas to investigate</em></div>
+            <div class="preview-metric"><small>Responses analyzed</small><b>2,480</b><em>↑ Student feedback</em></div>
+            <div class="preview-metric"><small>Positive sentiment</small><b>68.4%</b><em>↑ Positive experience</em></div>
+            <div class="preview-metric"><small>Negative sentiment</small><b>12.6%</b><em>↓ Needs attention</em></div>
           </div>
           <div class="preview-bottom">
-            <div class="preview-panel"><div class="preview-panel-title">Sentiment activity</div><div class="mini-bars"><i style="height:30%"></i><i style="height:44%"></i><i style="height:39%"></i><i style="height:61%"></i><i style="height:52%"></i><i style="height:73%"></i><i style="height:66%"></i><i style="height:88%"></i><i style="height:78%"></i><i style="height:96%"></i><i style="height:84%"></i><i style="height:100%"></i></div></div>
+            <div class="preview-panel"><div class="preview-panel-title">Feedback sentiment</div><div class="mini-bars"><i style="height:30%"></i><i style="height:44%"></i><i style="height:39%"></i><i style="height:61%"></i><i style="height:52%"></i><i style="height:73%"></i><i style="height:66%"></i><i style="height:88%"></i><i style="height:78%"></i><i style="height:96%"></i><i style="height:84%"></i><i style="height:100%"></i></div></div>
             <div class="preview-panel"><div class="preview-panel-title">Sentiment distribution</div><div class="sentiment-legend">
               <div class="sentiment-row"><span class="sentiment-dot" style="background:#27a982"></span>Positive <b>68.4%</b></div>
               <div class="sentiment-row"><span class="sentiment-dot" style="background:#5683ef"></span>Neutral <b>19.0%</b></div>
