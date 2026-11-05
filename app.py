@@ -468,6 +468,51 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
   .block-container:has(.landing-hero) .dashboard-preview{margin-top:18px!important}
 }
 
+
+/* Match Cogniscan's compact black pill CTA. */
+.block-container:has(.landing-hero) [data-testid="stButton"]:has(button[kind="primary"]){
+  width:fit-content!important;
+  max-width:max-content!important;
+  margin:22px auto 0!important;
+}
+.block-container:has(.landing-hero) [data-testid="stButton"]:has(button[kind="primary"]) button{
+  width:auto!important;
+  min-width:0!important;
+  min-height:0!important;
+  height:42px!important;
+  padding:8px 20px!important;
+  border:1px solid #111!important;
+  border-radius:9999px!important;
+  background:#111!important;
+  color:#fff!important;
+  box-shadow:none!important;
+  font-family:'Poppins',sans-serif!important;
+  font-size:13px!important;
+  font-weight:400!important;
+  letter-spacing:0!important;
+  line-height:1.5!important;
+  transition:background .2s ease,transform .2s ease!important;
+}
+.block-container:has(.landing-hero) [data-testid="stButton"]:has(button[kind="primary"]) button:hover{
+  background:#000!important;
+  border-color:#000!important;
+  transform:translateY(-1px)!important;
+  box-shadow:none!important;
+}
+@media(max-width:560px){
+  .block-container:has(.landing-hero) [data-testid="stButton"]:has(button[kind="primary"]){
+    width:fit-content!important;
+    margin:20px auto 0!important;
+  }
+  .block-container:has(.landing-hero) [data-testid="stButton"]:has(button[kind="primary"]) button{
+    width:auto!important;
+    min-width:0!important;
+    height:40px!important;
+    padding:7px 18px!important;
+    font-size:12px!important;
+  }
+}
+
 </style>
 """, unsafe_allow_html=True)
 
@@ -565,7 +610,7 @@ if st.session_state.page == "home":
     </section>
     """, unsafe_allow_html=True)
     st.markdown('<div class="landing-actions">', unsafe_allow_html=True)
-    if st.button("Start analyzing  ↗", type="primary", use_container_width=True, key="start"):
+    if st.button("Start analyzing  ↗", type="primary", use_container_width=False, key="start"):
         go("choose")
         st.rerun()
     st.markdown('</div>', unsafe_allow_html=True)
