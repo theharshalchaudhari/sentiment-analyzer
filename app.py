@@ -306,6 +306,25 @@ hr{border-color:#ffffffa8!important}
   .block-container:has(.landing-hero) .float-tile{animation:none!important}
 }
 
+
+/* Prevent the Streamlit main viewport itself from creating a second scroll area */
+[data-testid="stMain"]:has(.landing-hero){
+  height:100svh!important;max-height:100svh!important;overflow:hidden!important;
+}
+[data-testid="stMain"]:has(.landing-hero) [data-testid="stMainBlockContainer"]{
+  height:100%!important;max-height:100%!important;overflow:hidden!important;
+}
+@media(max-height:700px) and (max-width:850px){
+  .block-container:has(.landing-hero) .landing-hero{padding-top:8px!important}
+  .block-container:has(.landing-hero) .landing-title{font-size:clamp(29px,7vw,40px);margin-bottom:7px}
+  .block-container:has(.landing-hero) .landing-subtitle{margin-bottom:9px;line-height:1.35}
+  .block-container:has(.landing-hero) .announcement{margin-bottom:8px}
+  .block-container:has(.landing-hero) .trust-row{margin-bottom:8px}
+  .block-container:has(.landing-hero) .preview-shell{height:clamp(150px,27vh,190px)}
+  .block-container:has(.landing-hero) .preview-bottom{display:none}
+  .block-container:has(.landing-hero) .preview-head{margin-bottom:7px}
+}
+
 </style>
 """, unsafe_allow_html=True)
 
