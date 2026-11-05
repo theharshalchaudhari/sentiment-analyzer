@@ -923,6 +923,33 @@ h1,h2,h3,h4,h5,h6,strong,b,th {
   }
 }
 
+/* Step 02 — focused input workspace */
+.block-container:has(.st-key-analyze_single),.block-container:has(.st-key-analyze_batch){max-width:1040px!important;padding:18px clamp(18px,4vw,54px) 28px!important}
+.block-container:has(.st-key-analyze_single) .brandbar,.block-container:has(.st-key-analyze_batch) .brandbar{max-width:100%;margin:0 auto 18px!important}
+.step2-progress{max-width:860px;margin:0 auto 15px;padding:0 2px}
+.step2-progress>div:first-child{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;color:#303030;font-size:10px;letter-spacing:.12em}
+.step2-progress>div:first-child span:first-child{color:#777;letter-spacing:.16em}.step2-progress i{font-style:normal;color:#999}
+.step2-track{height:3px;border-radius:8px;background:#e9e9e9;overflow:hidden}.step2-track span{display:block;width:100%;height:100%;background:#171717;border-radius:8px}
+.block-container:has(.st-key-analyze_single) .hero,.block-container:has(.st-key-analyze_batch) .hero{max-width:860px;margin:0 auto 17px;padding:25px 30px 23px;border:1px solid #e9e9e9;border-radius:20px;background:rgba(255,255,255,.82);box-shadow:0 12px 34px rgba(0,0,0,.035);backdrop-filter:blur(18px)}
+.block-container:has(.st-key-analyze_single) .hero:after,.block-container:has(.st-key-analyze_batch) .hero:after{display:none}
+.block-container:has(.st-key-analyze_single) .hero .eyebrow,.block-container:has(.st-key-analyze_batch) .hero .eyebrow{color:#777;font-size:10px;letter-spacing:.16em;font-weight:400;margin-bottom:9px}
+.block-container:has(.st-key-analyze_single) .hero h1,.block-container:has(.st-key-analyze_batch) .hero h1{color:#171717;font-size:clamp(30px,4vw,43px);font-weight:400;letter-spacing:-.055em;line-height:1.12;margin-bottom:8px}
+.block-container:has(.st-key-analyze_single) .hero p,.block-container:has(.st-key-analyze_batch) .hero p{color:#777;font-size:12px;line-height:1.7;max-width:650px}
+.block-container:has(.st-key-analyze_single) .glass,.block-container:has(.st-key-analyze_batch) .glass{max-width:860px;margin:0 auto 10px;padding:19px 22px;background:rgba(255,255,255,.88);border:1px solid #e9e9e9;border-radius:17px;box-shadow:0 8px 26px rgba(0,0,0,.025);backdrop-filter:blur(18px)}
+.block-container:has(.st-key-analyze_single) .glass h3,.block-container:has(.st-key-analyze_batch) .glass h3{color:#222;font-size:15px;font-weight:400;letter-spacing:-.02em;margin-bottom:4px}
+.block-container:has(.st-key-analyze_single) .glass .kicker,.block-container:has(.st-key-analyze_batch) .glass .kicker{color:#888;font-size:9px;font-weight:400;letter-spacing:.16em;margin-bottom:7px}
+.block-container:has(.st-key-analyze_single) .glass .muted,.block-container:has(.st-key-analyze_batch) .glass .muted{color:#858585;font-size:11px}
+.block-container:has(.st-key-analyze_single) [data-testid="stTextArea"],.block-container:has(.st-key-analyze_batch) [data-testid="stTextArea"]{max-width:860px;margin:0 auto!important;padding:0 2px}
+.block-container:has(.st-key-analyze_single) .stTextArea textarea,.block-container:has(.st-key-analyze_batch) .stTextArea textarea{min-height:190px!important;padding:17px 18px!important;border:1px solid #dedede!important;border-radius:15px!important;background:rgba(255,255,255,.94)!important;color:#222!important;font:400 13px/1.8 Poppins,sans-serif!important;box-shadow:0 7px 22px rgba(0,0,0,.025)!important;resize:vertical}
+.block-container:has(.st-key-analyze_single) .stTextArea textarea:focus,.block-container:has(.st-key-analyze_batch) .stTextArea textarea:focus{border-color:#777!important;box-shadow:0 0 0 3px rgba(0,0,0,.045)!important}
+.block-container:has(.st-key-analyze_single) [data-testid="stCaptionContainer"]{max-width:860px;margin:3px auto 13px;color:#888;font-size:10px}
+.block-container:has(.st-key-analyze_single) .st-key-analyze_single,.block-container:has(.st-key-analyze_batch) .st-key-analyze_batch{max-width:860px;margin:0 auto}
+.block-container:has(.st-key-analyze_single) .st-key-analyze_single button,.block-container:has(.st-key-analyze_batch) .st-key-analyze_batch button{min-height:48px!important;border-radius:13px!important;background:#171717!important;color:#fff!important;border:1px solid #171717!important;box-shadow:0 8px 20px rgba(0,0,0,.10)!important;font-weight:400!important}
+.block-container:has(.st-key-analyze_single) .st-key-analyze_single button:hover,.block-container:has(.st-key-analyze_batch) .st-key-analyze_batch button:hover{background:#333!important;transform:translateY(-1px)}
+.block-container:has(.st-key-analyze_batch) [data-testid="stFileUploader"]{max-width:860px;margin:12px auto 14px;padding:15px 17px;border:1px solid #e5e5e5;border-radius:15px;background:rgba(255,255,255,.78)}
+.block-container:has(.st-key-analyze_batch) [data-testid="stFileUploader"] section{border:1px dashed #c9c9c9!important;background:#fafafa!important;border-radius:11px!important}
+.block-container:has(.st-key-analyze_batch) [data-testid="stSelectbox"]{max-width:860px;margin:0 auto 12px}
+@media(max-width:700px){.block-container:has(.st-key-analyze_single),.block-container:has(.st-key-analyze_batch){padding:12px 14px 24px!important}.block-container:has(.st-key-analyze_single) .hero,.block-container:has(.st-key-analyze_batch) .hero{padding:21px 19px;border-radius:17px}.block-container:has(.st-key-analyze_single) .glass,.block-container:has(.st-key-analyze_batch) .glass{padding:16px 17px}.block-container:has(.st-key-analyze_single) .stTextArea textarea,.block-container:has(.st-key-analyze_batch) .stTextArea textarea{min-height:170px!important}}
 </style>
 """, unsafe_allow_html=True)
 
@@ -1090,7 +1117,7 @@ elif st.session_state.page == "choose":
 elif st.session_state.page == "input":
     back_button("choose", "← Change analysis type")
     if st.session_state.mode == "single":
-        st.markdown('<div class="hero"><div class="eyebrow">STEP 02 · SINGLE ANALYSIS</div><h1>Paste your text.</h1><p>We will identify the overall sentiment and show the positive, neutral and negative polarity distribution.</p></div>', unsafe_allow_html=True)
+        st.markdown('<div class="step2-progress"><div><span>WORKFLOW</span><span>02 <i>/ 02</i></span></div><div class="step2-track"><span></span></div></div><div class="hero"><div class="eyebrow">STEP 02 · SINGLE ANALYSIS</div><h1>Paste your text.</h1><p>Enter a review, message or comment. The analyzer will identify its overall sentiment and polarity distribution.</p></div>', unsafe_allow_html=True)
         st.markdown('<div class="glass"><div class="kicker">TEXT INPUT</div><h3>Your review or message</h3><p class="muted">Keep the original punctuation and capitalization for VADER analysis.</p></div>', unsafe_allow_html=True)
         text_value = st.text_area("Text to analyze", value=st.session_state.single_text, height=170, placeholder="Write or paste your review here…", label_visibility="collapsed", key="single_input")
         st.caption(f"{len(text_value)} characters")
@@ -1104,7 +1131,7 @@ elif st.session_state.page == "input":
                 go("results")
                 st.rerun()
     else:
-        st.markdown('<div class="hero"><div class="eyebrow">STEP 02 · BATCH ANALYSIS</div><h1>Bring your feedback.</h1><p>Paste one review per line or upload a CSV. Select the column containing your review text.</p></div>', unsafe_allow_html=True)
+        st.markdown('<div class="step2-progress"><div><span>WORKFLOW</span><span>02 <i>/ 02</i></span></div><div class="step2-track"><span></span></div></div><div class="hero"><div class="eyebrow">STEP 02 · BATCH ANALYSIS</div><h1>Bring your feedback.</h1><p>Paste one review per line or import a CSV file. You can choose the column containing your feedback before analysis.</p></div>', unsafe_allow_html=True)
         st.markdown('<div class="glass"><div class="kicker">BATCH INPUT</div><h3>Reviews and feedback</h3><p class="muted">Use one review per line. CSV upload is optional.</p></div>', unsafe_allow_html=True)
         batch_value = st.text_area("Reviews", value=st.session_state.batch_text, height=150, placeholder="The service was excellent.\\nDelivery was late and support did not respond.\\nThe product is okay.", label_visibility="collapsed", key="batch_input")
         uploaded = st.file_uploader("Or upload a CSV file", type=["csv"], help="A review, text, feedback or comment column is detected automatically.")
