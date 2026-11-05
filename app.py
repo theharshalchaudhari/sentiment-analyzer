@@ -33,24 +33,24 @@ html,body,[class*="css"]{font-family:'Poppins',sans-serif}
 [data-testid="stToolbar"],#MainMenu,footer{visibility:hidden}
 .block-container{max-width:1120px;padding:1.55rem 2rem 3rem}
 .brandbar{display:flex;align-items:center;justify-content:space-between;margin:0 0 26px}
-.brand{display:flex;align-items:center;gap:10px;color:#25314a;font:800 13px Manrope,sans-serif;letter-spacing:.08em}
+.brand{display:flex;align-items:center;gap:10px;color:#25314a;font:800 13px Poppins,sans-serif;letter-spacing:.08em}
 .brand-icon{width:34px;height:34px;border-radius:12px;display:grid;place-items:center;color:#fff;background:linear-gradient(145deg,#8294ff,#5369eb);box-shadow:0 7px 18px #6279ef45}
 .brand-status{font-size:10px;color:#7c879c;padding:7px 11px;border:1px solid #ffffffc9;background:#ffffff77;border-radius:30px}
 .hero{position:relative;overflow:hidden;padding:44px 46px 40px;border-radius:30px;background:linear-gradient(120deg,#ffffffd9,#ffffff8c);border:1px solid #ffffffed;box-shadow:0 20px 60px #34436d14,inset 0 1px #fff;backdrop-filter:blur(24px);margin-bottom:20px}
 .hero:after{content:"";position:absolute;width:320px;height:320px;right:-90px;top:-160px;border-radius:50%;background:radial-gradient(circle,#8da2ff44,transparent 68%);pointer-events:none}
 .eyebrow{font-size:10px;font-weight:700;letter-spacing:.17em;text-transform:uppercase;color:#6579e4;margin-bottom:12px}
-.hero h1{font:800 clamp(34px,5vw,54px)/1.06 Manrope,sans-serif;letter-spacing:-.055em;color:#1b263d;margin:0 0 14px}
+.hero h1{font:800 clamp(34px,5vw,54px)/1.06 Poppins,sans-serif;letter-spacing:-.055em;color:#1b263d;margin:0 0 14px}
 .hero p{max-width:570px;color:#738097;font-size:14px;line-height:1.75;margin:0}
 .hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:23px}
 .tag{font-size:10px;font-weight:600;color:#68758d;padding:8px 11px;border:1px solid #fff;background:#ffffffa8;border-radius:30px}
 .glass{padding:23px 24px;border:1px solid #ffffffed;border-radius:23px;background:linear-gradient(145deg,#ffffffd9,#ffffff91);box-shadow:0 13px 38px #34436d0e,inset 0 1px #fff;backdrop-filter:blur(22px);margin-bottom:15px}
-.glass h3{font:750 18px Manrope,sans-serif;letter-spacing:-.025em;color:#26324a;margin:0 0 5px}
+.glass h3{font:750 18px Poppins,sans-serif;letter-spacing:-.025em;color:#26324a;margin:0 0 5px}
 .muted{font-size:12px;color:#8390a5;line-height:1.6}
 .kicker{font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-weight:700;color:#8a96aa;margin-bottom:8px}
-.step-number{font:800 11px Manrope,sans-serif;color:#6579e5;letter-spacing:.1em;margin-bottom:10px}
+.step-number{font:800 11px Poppins,sans-serif;color:#6579e5;letter-spacing:.1em;margin-bottom:10px}
 .feature{height:100%;padding:18px;border-radius:18px;background:#ffffff83;border:1px solid #ffffffdf}
 .feature-icon{width:37px;height:37px;display:grid;place-items:center;border-radius:13px;background:#edf0ff;color:#6378e8;margin-bottom:13px}
-.feature-title{font:700 13px Manrope,sans-serif;color:#33405a;margin-bottom:5px}
+.feature-title{font:700 13px Poppins,sans-serif;color:#33405a;margin-bottom:5px}
 .feature-copy{font-size:11px;line-height:1.55;color:#8490a4}
 .stButton>button,.stDownloadButton>button{min-height:43px;border:0!important;border-radius:12px!important;padding:0 18px!important;font-size:12px!important;font-weight:700!important;color:#fff!important;background:linear-gradient(135deg,#7185f7,#5369e8)!important;box-shadow:0 8px 20px #5a70ed38!important;transition:transform .18s ease,box-shadow .18s ease!important}
 .stButton>button:hover,.stDownloadButton>button:hover{transform:translateY(-1px);box-shadow:0 11px 24px #5a70ed48!important}
@@ -60,12 +60,12 @@ html,body,[class*="css"]{font-family:'Poppins',sans-serif}
 label{font-size:12px!important;color:#596780!important;font-weight:600!important}
 [data-testid="stMetric"]{padding:14px 16px;background:#ffffffa6;border:1px solid #ffffff;border-radius:16px;box-shadow:0 7px 20px #34436d0a}
 [data-testid="stMetricLabel"]{font-size:10px!important;color:#8490a4!important}
-[data-testid="stMetricValue"]{font:750 23px Manrope,sans-serif!important;color:#26334b!important}
+[data-testid="stMetricValue"]{font:750 23px Poppins,sans-serif!important;color:#26334b!important}
 [data-testid="stDataFrame"]{border:1px solid #ffffff;border-radius:15px;overflow:hidden;background:#ffffffa8}
 [data-testid="stFileUploader"] section{background:#ffffff80;border:1px dashed #cbd3e6;border-radius:14px}
 .result-pill{display:inline-flex;align-items:center;gap:7px;border-radius:30px;padding:7px 11px;font-size:10px;font-weight:700;background:#fff;border:1px solid #fff}
 .dot{width:7px;height:7px;border-radius:50%;display:inline-block}
-.score{font:800 30px Manrope,sans-serif;letter-spacing:-.04em;color:#253149}
+.score{font:800 30px Poppins,sans-serif;letter-spacing:-.04em;color:#253149}
 .footer{text-align:center;color:#9aa5b7;font-size:10px;letter-spacing:.08em;padding:22px 0 0}
 hr{border-color:#ffffffa8!important}
 @media(max-width:700px){.block-container{padding:1rem 1rem 2.5rem}.hero{padding:28px 23px;border-radius:23px}.glass{padding:18px}.brandbar{margin-bottom:18px}}
@@ -78,7 +78,7 @@ hr{border-color:#ffffffa8!important}
 [data-testid="stMain"]{position:relative;z-index:1;background:transparent}
 .block-container{max-width:1320px;padding:1.15rem 2.3rem 3rem}
 .brandbar{display:flex;align-items:center;justify-content:space-between;margin:0 auto 24px;max-width:1220px;padding:0 5px}
-.brand{gap:10px;color:#202642;font:800 18px Manrope,sans-serif;letter-spacing:-.04em}
+.brand{gap:10px;color:#202642;font:800 18px Poppins,sans-serif;letter-spacing:-.04em}
 .brand-icon{width:35px;height:35px;border-radius:12px;background:linear-gradient(145deg,#4266f5,#7a35dc);box-shadow:0 7px 20px #634cf044}
 .brand-status{font-size:10px;color:#777f99;padding:8px 13px;border:1px solid #e9eafa;background:#ffffffa8;border-radius:30px}
 .landing-nav{display:flex;align-items:center;justify-content:space-between;gap:22px;margin:-54px 0 58px 230px;min-height:38px;color:#34394e;font-size:12px;font-weight:600}
@@ -86,7 +86,7 @@ hr{border-color:#ffffffa8!important}
 .landing-nav-right{display:flex;align-items:center;gap:25px}
 .landing-hero{text-align:center;position:relative;padding:0 12px 0;min-height:440px}
 .announcement{display:inline-flex;align-items:center;gap:8px;padding:9px 15px;border-radius:30px;background:#f2edff;border:1px solid #e9e0ff;color:#7554cf;font-size:11px;font-weight:700;margin-bottom:26px}
-.landing-title{font:800 clamp(38px,5.1vw,70px)/1.08 Manrope,sans-serif;letter-spacing:-.065em;margin:0 auto 18px;max-width:1000px;background:linear-gradient(95deg,#122caa 5%,#3446e7 33%,#8d2cdb 63%,#e34f9a 86%,#ed7957 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.landing-title{font:800 clamp(38px,5.1vw,70px)/1.08 Poppins,sans-serif;letter-spacing:-.065em;margin:0 auto 18px;max-width:1000px;background:linear-gradient(95deg,#122caa 5%,#3446e7 33%,#8d2cdb 63%,#e34f9a 86%,#ed7957 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
 .landing-subtitle{font-size:16px;line-height:1.65;color:#707991;max-width:650px;margin:0 auto 28px}
 .landing-actions{display:flex;justify-content:center;gap:14px;margin:0 auto 26px}
 .landing-actions .stButton{width:auto}
@@ -98,22 +98,22 @@ hr{border-color:#ffffffa8!important}
 .dashboard-preview{position:relative;z-index:2;max-width:1040px;margin:0 auto 15px;border:1px solid #fff;border-radius:28px;background:#ffffffd9;box-shadow:0 24px 85px #46518a20,0 4px 20px #6a74a20d;backdrop-filter:blur(25px);overflow:hidden;text-align:left}
 .preview-shell{display:grid;grid-template-columns:185px 1fr;min-height:440px}
 .preview-sidebar{padding:25px 18px;border-right:1px solid #f0f1f8;background:#ffffffa8}
-.preview-brand{display:flex;align-items:center;gap:8px;font:800 12px Manrope;color:#29334e;margin-bottom:28px}
+.preview-brand{display:flex;align-items:center;gap:8px;font:800 12px Poppins;color:#29334e;margin-bottom:28px}
 .preview-mark{width:19px;height:19px;border-radius:7px;background:linear-gradient(135deg,#446af4,#8d3cdb)}
 .preview-nav{padding:10px 12px;border-radius:10px;color:#7d879c;font-size:11px;margin:5px 0}
 .preview-nav.active{background:#f0edff;color:#6b4bce;font-weight:700}
 .preview-main{padding:25px 27px}
 .preview-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}
-.preview-head strong{font:750 17px Manrope;color:#27334b}
+.preview-head strong{font:750 17px Poppins;color:#27334b}
 .preview-head span{font-size:10px;color:#8b95a8}
 .preview-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:15px}
 .preview-metric{padding:14px 15px;border:1px solid #eff0f7;border-radius:14px;background:#ffffffc9}
 .preview-metric small{display:block;font-size:9px;color:#8791a5;margin-bottom:9px}
-.preview-metric b{display:block;font:800 22px Manrope;color:#29354e}
+.preview-metric b{display:block;font:800 22px Poppins;color:#29354e}
 .preview-metric em{display:block;font-style:normal;font-size:9px;color:#24a37c;margin-top:5px}
 .preview-bottom{display:grid;grid-template-columns:1.25fr .75fr;gap:13px}
 .preview-panel{padding:17px;border:1px solid #eff0f7;border-radius:14px;background:#ffffffc9;min-height:190px}
-.preview-panel-title{font:700 11px Manrope;color:#3a455d;margin-bottom:15px}
+.preview-panel-title{font:700 11px Poppins;color:#3a455d;margin-bottom:15px}
 .mini-bars{height:112px;display:flex;align-items:end;gap:9px;padding:0 7px;border-bottom:1px solid #edf0f6;background:repeating-linear-gradient(to bottom,transparent 0,transparent 26px,#f0f1f7 27px)}
 .mini-bars i{display:block;flex:1;border-radius:6px 6px 0 0;background:linear-gradient(180deg,#a78bf3,#6175ec);opacity:.82}
 .sentiment-legend{display:flex;flex-direction:column;gap:13px;padding-top:8px}
@@ -619,7 +619,7 @@ elif st.session_state.page == "results":
         with left:
             st.markdown('<div class="glass"><div class="kicker">OVERALL SENTIMENT</div>', unsafe_allow_html=True)
             color = {"Positive":"#1b9b76","Neutral":"#bd8a38","Negative":"#df6570"}[result["label"]]
-            st.markdown(f'<div style="font:400 29px 'Poppins';color:{color};margin:7px 0">{result["label"]}</div><div class="muted">Compound score</div><div class="score">{scores["compound"]:+.3f}</div><div class="muted">Scale: −1.0 (negative) to +1.0 (positive)</div></div>', unsafe_allow_html=True)
+            st.markdown(f'<div style="font:400 29px Poppins,sans-serif;color:{color};margin:7px 0">{result["label"]}</div><div class="muted">Compound score</div><div class="score">{scores["compound"]:+.3f}</div><div class="muted">Scale: −1.0 (negative) to +1.0 (positive)</div></div>', unsafe_allow_html=True)
             st.markdown('<div class="glass"><div class="kicker">ANALYZED TEXT</div>', unsafe_allow_html=True)
             st.write(result["text"])
             st.markdown('</div>', unsafe_allow_html=True)
